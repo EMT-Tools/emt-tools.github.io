@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://emt-tools.com/sitemap.xml
