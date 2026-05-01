@@ -9,6 +9,9 @@
   
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
   
+  <!-- This is the crucial line that links your CSS -->
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  
   <!-- Social Media Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
@@ -21,15 +24,15 @@
 </head>
 <body>
   
-  <!This pulls in header>
+  <!-- This pulls in your header -->
   {% include header.html %}
   
   <main>
-    <!This is where page-specific text goes>
+    <!-- This is where page-specific text goes -->
     {{ content }}
   </main>
   
-  <!This pulls in your footer>
+  <!-- This pulls in your footer -->
   {% include footer.html %}
 
 </body>
