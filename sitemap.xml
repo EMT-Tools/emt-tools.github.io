@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Landing Page -->
+  <url>
+    <loc>https://emt-tools.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <!-- Main Tool Pages -->
+  <url>
+    <loc>https://emt-tools.com/model-audit-tools/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://emt-tools.com/PSCAD-collection/</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- Secondary Pages -->
+  <url>
+    <loc>https://emt-tools.com/contact/</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://emt-tools.com/about/cookie-policy/</loc>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://emt-tools.com/about/privacy-policy/</loc>
+    <priority>0.1</priority>
+  </url>
+</urlset>
