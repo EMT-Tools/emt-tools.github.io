@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+  
+  <!-- Social Media Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+  <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+</head>
+<body>
+  
+  <!This pulls in header>
+  {% include header.html %}
+  
+  <main>
+    <!This is where page-specific text goes>
+    {{ content }}
+  </main>
+  
+  <!This pulls in your footer>
+  {% include footer.html %}
+
+</body>
+</html>
