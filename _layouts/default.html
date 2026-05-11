@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/favicon_256.png' | relative_url }}">
   <meta name="description" content="{{ page.description | default: site.description }}">
   
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
   
-  <!-- This is the crucial line that links your CSS -->
+  <! This is the crucial line that links your CSS >
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Social Media Tags -->
+  <! Social Media Tags >
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
   <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
@@ -24,15 +25,15 @@
 </head>
 <body>
   
-  <!-- This pulls in your header -->
+  <!This pulls in your header >
   {% include header.html %}
   
   <main>
-    <!-- This is where page-specific text goes -->
+    <!This is where page-specific text goes>
     {{ content }}
   </main>
   
-  <!-- This pulls in your footer -->
+  <! This pulls in your footer >
   {% include footer.html %}
 
 </body>
