@@ -1,14 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Model Audit Tools</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <h1>Model Audit Tools</h1>
-  <p>Content coming soon...</p>
+---
+layout: default
+title: Contact Support
+description: Get in touch with the EMT Tools team for technical support, subscriptions, or account inquiries.
+---
 
-  <a href="/">Back to Home</a>
-</body>
-</html>
+<style>
+  /* Contact Form Specific Styling */
+  .form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #1e293b;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #334155;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+  
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    background-color: #0f172a;
+    color: #e5e7eb;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+  
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  
+  /* This hides the rest of the form by default */
+  #dynamic-fields {
+    display: none; 
+  }
+</style>
+
+<div class="form-container">
+  <h1 style="margin-top: 0;">Contact Us</h1>
+  <p style="color: #94a3b8; margin-bottom: 2rem;">How can we help you today?</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+    
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <input type="hidden" name="subject" id="email-subject" value="New EMT Tools Inquiry">
+
+    <div class="form-group">
+      <label for="inquiry-type">Please select the type of inquiry:</label>
+      <select name="inquiry_type" id="inquiry-type" required>
+        <option value="" disabled selected>-- Select an option --</option>
+        <option value="Account Issue">Account Issue</option>
+        <option value="Subscription Purchase">Subscription Purchase</option>
+        <option value="Technical Issue">Technical Issue</option>
+        <option value="Report a Bug">Report a Bug</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div id="dynamic-fields">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required placeholder="Jane Doe">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required placeholder="jane@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="product">Product Name</label>
+        <input type="text" name="product" id="product" placeholder="e.g., Memory Audit Subscription">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="5" required placeholder="Please provide details about your inquiry..."></textarea>
+      </div>
+
+      <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Submit Inquiry</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  // JavaScript to handle the interactive show/hide logic
+  const inquiryType = document.getElementById('inquiry-type');
+  const dynamicFields = document.getElementById('dynamic-fields');
+  const emailSubject = document.getElementById('email-subject');
+
+  inquiryType.addEventListener('change', function() {
+    // Show the rest of the form once an option is selected
+    if (this.value) {
+      dynamicFields.style.display = 'block';
+      // Automatically update the email subject line to match the dropdown choice!
+      emailSubject.value = "EMT Tools Inquiry: " + this.value;
+    }
+  });
+</script>
