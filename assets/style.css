@@ -5,7 +5,7 @@
   --accent-color: #3b82f6; /* A nice professional blue */
 }
 
-/*GLOBAL STYLES */
+/* GLOBAL STYLES */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -35,6 +35,19 @@ header nav {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+}
+
+/* Flexbox for aligning icons and text perfectly */
+header nav a {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+}
+
+/* Icon specific sizing */
+header nav a i {
+  color: inherit;
+  font-size: 1.1em;
 }
 
 header a, footer a {
