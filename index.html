@@ -1,44 +1,75 @@
 ---
 layout: default
-title: EMT Tools | Free Professional PSCAD & EMTDC Resources
-description: Discover an extensive open-source collection of free PSCAD automation scripts, EMTDC tools, and engineering resources.
 ---
-
 <section class="hero">
-  <h1>Master Your EMT Simulations</h1>
-  <p>Streamline your workflow with our growing library of free, open-source PSCAD resources and automation scripts.</p>
-  <div>
-    <a href="#downloads" class="btn">View Free Tools</a>
-    <a href="/contact/" class="btn btn-secondary" style="margin-left: 10px;">Contact Us</a>
+  <div class="container">
+    <h1>Free PSCAD Resources</h1>
+    <p class="hero-description">This site is a growing collection of free PSCAD examples, practical simulation cases, and reusable engineering resources...</p>
+    <div class="profile-panel">
+      <!-- Paste your About and LinkedIn cards HTML here -->
+    </div>
   </div>
 </section>
 
-<section id="downloads" style="max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center;">
-  
-  <div class="card">
-    <h2>Free PSCAD Tools & Scripts</h2>
-    <p>Access our community-driven library of scripts, tools, and models. These resources include custom automation scripts designed to safely manage components and resolve execution blocking behavior in your EMTDC simulation runs.</p>
-    
-    <!-- Download Buttons Section -->
-    <div style="margin: 30px 0; display: flex; flex-direction: column; gap: 15px; align-items: center;">
-      
-      <!-- Replace the '#' with your actual file paths (e.g., '/downloads/script1.zip') -->
-      <a href="#" class="btn btn-secondary" style="width: 100%; max-width: 400px;">
-        Download Component Manager Script
-      </a>
-      
-      <a href="#" class="btn btn-secondary" style="width: 100%; max-width: 400px;">
-        Download Automation Utility v1.0
-      </a>
-      
-      <a href="#" class="btn btn-secondary" style="width: 100%; max-width: 400px;">
-        Download Example Simulation Model
-      </a>
-      
+<section class="search-section" id="search">
+  <div class="container">
+    <div class="search-panel">
+      <h2>Search PSCAD Examples</h2>
+      <p>Search by example title, description, application, PSCAD feature, or tag.</p>
+      <input aria-label="Search PSCAD examples" class="search-box" id="exampleSearch" placeholder="Try: custom component, EMTDC, controls, automation, ..." type="search"/>
+      <div class="tag-filter-wrap">
+        <label class="tag-filter-label" for="tagFilter">Filter by Tag</label>
+        <select aria-label="Filter PSCAD examples by tag" class="tag-filter" id="tagFilter">
+          <option value="">All Tags</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="examples" id="examples">
+  <div class="container">
+    <div class="section-heading">
+      <h2>PSCAD Collection</h2>
+      <p>Download the cases freely and use them to explore PSCAD modelling concepts...</p>
     </div>
     
-    <p><em>Looking for more?</em></p>
-    <a href="/PSCAD-collection/" class="btn">Explore the Full Library</a>
-  </div>
+    <div class="example-grid" id="exampleCollection">
+      <!-- THE JEKYLL LOOP -->
+      {% for example in site.examples %}
+      <article class="searchable-example example-card" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+        <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
+        <div class="example-content">
+          <div class="example-number">Example {{ forloop.index }}</div>
+          <h3>{{ example.title }}</h3>
+          <div class="tags-label">Tags</div>
+          <div aria-label="Tags" class="tags">
+            {% for tag in example.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <div class="example-description">
+            {{ example.content }}
+          </div>
+          <br/>
+          <div class="metadata">
+            <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ example.pscad_version | default: "v5.1+" }}</span></div>
+            <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
+            <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
+          </div>
+          <div class="card-actions">
+            <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button">
+              Download Example
+            </button>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
 
+    <div class="no-results" id="noResults">No PSCAD examples match your search.</div>
+    <div class="growth-callout">
+      <!-- Paste your Looking for more? block here -->
+    </div>
+  </div>
 </section>
