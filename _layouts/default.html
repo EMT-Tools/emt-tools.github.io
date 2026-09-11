@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-G324ZWQYKY');
   </script>
 
@@ -16,15 +15,458 @@
   <title>{{ page.title | default: "Free PSCAD Examples | PSCAD Models, EMT Cases and Simulation Resources" }}</title>
   <meta content="{{ page.description | default: 'Download free PSCAD examples, EMT simulation cases, PSCAD models, and practical PSCAD engineering resources.' }}" name="description"/>
   
-  <!-- Add your original <style> block here exactly as it was in your HTML -->
   <style>
-    /* Paste all of your CSS from the original EMT-Tools_Main.html here */
+    :root {
+      --bg: #f3f6f8;
+      --surface: #ffffff;
+      --surface-soft: #edf3f6;
+      --text: #15222d;
+      --muted: #63717d;
+      --border: #d9e2e8;
+      --accent: #0d5f8e;
+      --accent-dark: #094768;
+      --linkedin: #0a66c2;
+      --shadow: 0 16px 42px rgba(20, 36, 52, 0.08);
+      --radius: 16px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top right, rgba(13, 95, 142, 0.08), transparent 32rem), var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    button, input { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.93rem;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero { padding: 86px 0 34px; }
+
+    h1 {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: clamp(2.5rem, 6vw, 4.9rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      text-align: center;
+    }
+
+    .hero-description {
+      max-width: 890px;
+      margin: 25px auto 0;
+      color: var(--muted);
+      font-size: 1.11rem;
+      text-align: justify;
+      text-align-last: center;
+    }
+
+    .profile-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .about-card, .linkedin-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .about-card { padding: 30px; }
+    .about-card h2, .linkedin-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    .linkedin-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+    }
+    .linkedin-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: var(--linkedin);
+    }
+
+    .linkedin-profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 8px 0 18px;
+    }
+
+    .linkedin-avatar {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 58px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .linkedin-avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .linkedin-name { font-weight: 780; font-size: 1.07rem; }
+    .linkedin-role, .linkedin-copy { color: var(--muted); font-size: 0.94rem; }
+    .linkedin-copy { margin-bottom: 21px; }
+
+    .search-section { padding: 28px 0 18px; }
+    .search-panel {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .search-panel h2 { margin-bottom: 6px; font-size: 1.2rem; }
+    .search-panel p { margin-bottom: 15px; color: var(--muted); font-size: 0.92rem; }
+
+    .search-box {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      outline: none;
+      color: var(--text);
+      background: #fff;
+    }
+    .search-box:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.09); }
+
+    .tag-filter-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 16px;
+      max-width: 360px;
+    }
+    .tag-filter-label { color: var(--text); font-size: 0.86rem; font-weight: 750; }
+    .tag-filter {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      color: var(--text);
+      background: #fff;
+      cursor: pointer;
+    }
+    .tag-filter:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.09); }
+
+    section.examples { padding: 54px 0 82px; }
+    .section-heading { width: 100%; max-width: none; margin-bottom: 30px; }
+    .section-heading h2 {
+      max-width: 760px;
+      margin-bottom: 10px;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+    .section-heading p {
+      width: 100%;
+      color: var(--muted);
+      text-align: left;
+      text-align-last: left;
+      word-spacing: normal;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+    .example-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .example-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 28px;
+    }
+    .example-number {
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .example-content h3 {
+      margin: 7px 0 11px;
+      font-size: 1.42rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .example-description { margin-bottom: 19px; color: var(--muted); }
+
+    .metadata {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+    .meta-item { padding: 10px 11px; border-radius: 9px; background: var(--surface-soft); }
+    .meta-label {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--muted);
+      font-size: 0.71rem;
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .meta-value { font-size: 0.88rem; font-weight: 700; }
+
+    .tags-label {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0 0 16px;
+    }
+    .tag {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 0.75rem;
+      font-weight: 750;
+    }
+
+    .share-button-top {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 750;
+      box-shadow: 0 4px 14px rgba(20, 36, 52, 0.06);
+    }
+    .share-button-top:hover { border-color: var(--accent); color: var(--accent); }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 45px;
+      padding: 0 17px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 760;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { background: var(--accent); color: #fff; }
+    .button-primary:hover { background: var(--accent-dark); }
+    .button-secondary { border-color: var(--border); background: #fff; color: var(--text); }
+    .button-linkedin { background: var(--linkedin); color: #fff; }
+    .button-linkedin:hover { background: #084f96; }
+
+    .no-results {
+      display: none;
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .growth-callout {
+      margin-top: 28px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(10,102,194,0.2);
+      border-radius: var(--radius);
+      background: rgba(10,102,194,0.055);
+    }
+    .growth-callout h3 { margin-bottom: 5px; font-size: 1.18rem; }
+    .growth-callout p { max-width: 700px; color: var(--muted); font-size: 0.94rem; }
+
+    .disclaimer-section { padding: 0 0 72px; }
+    .disclaimer-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .disclaimer-card h2 { margin-bottom: 12px; font-size: 1.25rem; letter-spacing: -0.02em; }
+    .disclaimer-card p { margin-bottom: 12px; color: var(--muted); font-size: 0.9rem; }
+    .disclaimer-card p:last-child { margin-bottom: 0; }
+
+    .share-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      z-index: 120;
+      padding: 10px 14px;
+      border-radius: 9px;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 12px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(13, 25, 35, 0.58);
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      width: min(100%, 520px);
+      padding: 30px;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.2);
+    }
+    .modal h2 { margin-bottom: 10px; font-size: 1.45rem; }
+    .modal p { margin-bottom: 20px; color: var(--muted); }
+    .modal-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    @media (max-width: 900px) {
+      .profile-panel { grid-template-columns: 1fr; }
+      .example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .growth-callout { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 680px) {
+      .example-grid { grid-template-columns: 1fr; }
+      .nav-links a:first-child { display: none; }
+      .nav-links { gap: 14px; }
+      .hero { padding-top: 58px; }
+      .about-card, .linkedin-card, .example-content { padding: 23px; }
+      .metadata { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="/">PSCAD EMTDC Resources</a>
+      <a class="brand" href="/#top">PSCAD EMTDC Resources</a>
       <nav aria-label="Main navigation" class="nav-links">
         <a href="/#examples">Examples</a>
         <a href="/#search">Search</a>
@@ -34,7 +476,6 @@
   </header>
 
   <main id="top">
-    <!-- This is where Jekyll will automatically inject your page content -->
     {{ content }}
   </main>
 
@@ -42,16 +483,187 @@
     <div class="container">
       <div class="disclaimer-card">
         <h2>Disclaimer</h2>
-        <p>The PSCAD examples, models, files, and related information provided on this website are made available for educational and informational purposes only...</p>
+        <p>The PSCAD examples, models, files, and related information provided on this website are made available for educational and informational purposes only. While reasonable care has been taken in preparing these materials, no representation or warranty is made regarding their accuracy, completeness, suitability, reliability, or fitness for any particular purpose.</p>
+        <p>The examples may contain errors, omissions, modelling assumptions, simplifications, or software specific limitations. Users are responsible for independently reviewing, validating, and verifying all models, calculations, parameters, results, and conclusions before relying on them for engineering, design, operational, commercial, regulatory, or other purposes.</p>
+        <p>Use of any material provided on this website is entirely at the user's own risk. To the maximum extent permitted by applicable law, Mathias Pielahn assumes no liability for any direct, indirect, incidental, consequential, special, or other loss or damage arising from the use of, reliance on, or inability to use any example, model, file, information, or simulation result provided on this website.</p>
+        <p>These materials are not a substitute for professional engineering judgment, independent verification, or compliance with applicable standards, codes, regulations, and project specific requirements.</p>
       </div>
     </div>
   </section>
 
-  <!-- Add your original bottom elements (Toast, Modal, and Javascript) here -->
   <div aria-live="polite" class="share-toast" id="shareToast" role="status">Example link copied</div>
-  
+
+  <div aria-labelledby="downloadModalTitle" aria-modal="true" class="modal-backdrop" id="downloadModal" role="dialog">
+    <div class="modal">
+      <h2 id="downloadModalTitle">Thanks for using the PSCAD example</h2>
+      <p id="downloadModalCopy">I regularly publish new PSCAD examples, modelling techniques, debugging tips, and practical simulation lessons. Follow me on LinkedIn to see the next release.</p>
+      <div class="modal-actions">
+        <a class="button button-linkedin follow-link" data-location="download-modal" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">Follow on LinkedIn</a>
+        <button class="button button-secondary" id="closeModal" type="button">Continue Browsing</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    /* Paste your entire original Javascript block here */
+    const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/mathiaspielahn/";
+    document.querySelectorAll(".follow-link").forEach((link) => {
+      link.href = LINKEDIN_PROFILE_URL;
+      link.addEventListener("click", () => {
+        trackEvent("linkedin_follow_click", { location: link.dataset.location || "unknown" });
+      });
+    });
+
+    function trackEvent(name, parameters = {}) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", name, parameters);
+      } else {
+        console.info("[analytics]", name, parameters);
+      }
+    }
+
+    const searchInput = document.getElementById("exampleSearch");
+    const tagFilter = document.getElementById("tagFilter");
+    const examples = Array.from(document.querySelectorAll(".searchable-example"));
+    const noResults = document.getElementById("noResults");
+
+    function getExampleTags(example) {
+      return Array.from(example.querySelectorAll(".tag"))
+        .map((tag) => tag.textContent.trim())
+        .filter(Boolean);
+    }
+
+    function populateTagFilter() {
+      const tags = Array.from(new Set(examples.flatMap(getExampleTags))).sort((a, b) => a.localeCompare(b));
+      if(tagFilter) {
+        tagFilter.innerHTML = '<option value="">All Tags</option>';
+        tags.forEach((tag) => {
+          const option = document.createElement("option");
+          option.value = tag;
+          option.textContent = tag;
+          tagFilter.appendChild(option);
+        });
+      }
+    }
+
+    function filterExamples() {
+      if(!searchInput || !tagFilter) return;
+      const query = searchInput.value.trim().toLowerCase();
+      const selectedTag = tagFilter.value;
+      let visibleCount = 0;
+
+      examples.forEach((example) => {
+        const searchableText = (example.textContent + " " + (example.dataset.search || "")).toLowerCase();
+        const exampleTags = getExampleTags(example);
+        const matchesSearch = query === "" || searchableText.includes(query);
+        const matchesTag = selectedTag === "" || exampleTags.includes(selectedTag);
+        const matches = matchesSearch && matchesTag;
+
+        example.style.display = matches ? "" : "none";
+        if (matches) { visibleCount += 1; }
+      });
+
+      if(noResults) { noResults.style.display = visibleCount === 0 ? "block" : "none"; }
+      trackEvent("example_filter", { search_term: query, tag: selectedTag || "all", result_count: visibleCount });
+    }
+
+    populateTagFilter();
+    if(searchInput) searchInput.addEventListener("input", filterExamples);
+    if(tagFilter) tagFilter.addEventListener("change", filterExamples);
+
+    const shareToast = document.getElementById("shareToast");
+    let shareToastTimer;
+
+    function showShareToast(message) {
+      if(!shareToast) return;
+      shareToast.textContent = message;
+      shareToast.classList.add("show");
+      clearTimeout(shareToastTimer);
+      shareToastTimer = setTimeout(() => { shareToast.classList.remove("show"); }, 1800);
+    }
+
+    document.querySelectorAll(".share-button").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const example = button.closest(".searchable-example");
+        const titleElement = example.querySelector("h3");
+        const shareTitle = titleElement ? titleElement.textContent.trim() : "PSCAD Example";
+        const shareUrl = window.location.origin + window.location.pathname + window.location.search + "#" + example.id;
+
+        trackEvent("example_share_click", { example: example.id, share_url: shareUrl });
+
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: shareTitle, text: "Free PSCAD example", url: shareUrl });
+            return;
+          } catch (error) {
+            if (error && error.name === "AbortError") { return; }
+          }
+        }
+
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          showShareToast("Example link copied");
+        } catch (error) {
+          const fallback = document.createElement("textarea");
+          fallback.value = shareUrl;
+          fallback.setAttribute("readonly", "");
+          fallback.style.position = "fixed";
+          fallback.style.opacity = "0";
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand("copy");
+          fallback.remove();
+          showShareToast("Example link copied");
+        }
+      });
+    });
+
+    const downloadModal = document.getElementById("downloadModal");
+    const downloadModalCopy = document.getElementById("downloadModalCopy");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".download-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const exampleName = button.dataset.example || "PSCAD example";
+        const downloadUrl = button.dataset.downloadUrl;
+
+        trackEvent("example_download_click", { example: exampleName });
+
+        if (downloadUrl) {
+          const downloader = document.createElement("a");
+          downloader.href = downloadUrl;
+          downloader.download = "";
+          document.body.appendChild(downloader);
+          downloader.click();
+          downloader.remove();
+          if(downloadModalCopy) downloadModalCopy.textContent = "Your download has started. I regularly publish new PSCAD examples, modelling techniques, debugging tips, and practical simulation lessons. Follow me on LinkedIn to see the next release.";
+        } else {
+          if(downloadModalCopy) downloadModalCopy.textContent = "This download link is currently a placeholder. When the example file is added, the download will start here. Follow me on LinkedIn for new PSCAD example releases and updates.";
+        }
+
+        if(downloadModal) downloadModal.classList.add("open");
+      });
+    });
+
+    if(closeModal) {
+      closeModal.addEventListener("click", () => { downloadModal.classList.remove("open"); });
+    }
+
+    if(downloadModal) {
+      downloadModal.addEventListener("click", (event) => {
+        if (event.target === downloadModal) { downloadModal.classList.remove("open"); }
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && downloadModal) { downloadModal.classList.remove("open"); }
+    });
+
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => { target.scrollIntoView({ behavior: "smooth", block: "start" }); }, 100);
+      }
+    }
   </script>
 </body>
 </html>
