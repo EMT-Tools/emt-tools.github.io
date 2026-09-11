@@ -4,9 +4,38 @@ layout: default
 <section class="hero">
   <div class="container">
     <h1>Free PSCAD Resources</h1>
-    <p class="hero-description">This site is a growing collection of free PSCAD examples, practical simulation cases, and reusable engineering resources...</p>
+    <p class="hero-description">
+      This site is a growing collection of free PSCAD examples, practical simulation cases,
+      and reusable engineering resources for professionals working with electromagnetic
+      transient (EMT) studies, PSCAD / EMTDC model development, controls, inverter based
+      resources (IBRs), renewable generation, and modern power system simulation. The objective is
+      to provide clear, useful examples that help engineers understand PSCAD concepts,
+      explore modelling techniques, debug problems, and build better simulation models.
+    </p>
     <div class="profile-panel">
-      <!-- Paste your About and LinkedIn cards HTML here -->
+      <article class="about-card">
+        <h2>About</h2>
+        <p>I am a power systems electrical engineer specializing in electromagnetic transient model development and simulation, with a particular focus on inverter based resources and wind turbine systems. My work spans detailed PSCAD model development, simulation automation, custom component development, and the creation of specialized tools that extend PSCAD and EMTDC capabilities for complex engineering applications.</p>
+        <p>I have more than 14 years of experience working directly with PSCAD and EMTDC, including extensive experience reviewing and debugging detailed user models, custom components, simulation workflows, and software integration issues. My work has included investigating EMTDC memory corruption, developing and troubleshooting DLL integrations, implementing C-to-Fortran interface wrappers, and resolving low level issues involving compiled code, external libraries, and the interaction between custom models and the EMTDC simulation engine. This experience has provided a detailed understanding not only of how PSCAD models are built and simulated, but also of what happens beneath the graphical interface when those models are compiled and executed.</p>
+        <p>This collection is a passion project of mine. My goal is to share practical PSCAD examples, modelling techniques, and implementation approaches that can be applied to real engineering work. The examples are designed to go beyond basic demonstrations by highlighting useful techniques, common modelling challenges, debugging approaches, and less obvious features of PSCAD and EMTDC that can help engineers develop more robust and effective simulation models.</p>
+        <p>Totally free and open source. <span style="color: red;">❤️</span></p>
+      </article>
+      <aside aria-label="LinkedIn profile" class="linkedin-card">
+        <h2>Follow for More PSCAD Content</h2>
+        <div class="linkedin-profile">
+          <div class="linkedin-avatar">
+            <img alt="Mathias Pielahn" src="/author/Pic.jpeg"/>
+          </div>
+          <div>
+            <div class="linkedin-name">Mathias Pielahn, P. Eng.</div>
+            <div class="linkedin-role">Electrical Engineer | PSCAD EMT | Model Development | Wind Energy</div>
+          </div>
+        </div>
+        <p class="linkedin-copy">Follow me for new free PSCAD examples, model development techniques, debugging tips, lessons from real model reviews, and random thoughts.</p>
+        <div class="linkedin-actions">
+          <a class="button button-linkedin follow-link" data-location="top-profile" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">View / Follow on LinkedIn</a>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -31,11 +60,10 @@ layout: default
   <div class="container">
     <div class="section-heading">
       <h2>PSCAD Collection</h2>
-      <p>Download the cases freely and use them to explore PSCAD modelling concepts...</p>
+      <p>Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.</p>
     </div>
     
     <div class="example-grid" id="exampleCollection">
-      <!-- THE JEKYLL LOOP -->
       {% for example in site.examples %}
       <article class="searchable-example example-card" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
         <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
@@ -68,8 +96,15 @@ layout: default
     </div>
 
     <div class="no-results" id="noResults">No PSCAD examples match your search.</div>
+    
     <div class="growth-callout">
-      <!-- Paste your Looking for more? block here -->
+      <div>
+        <h3>Looking for more?</h3>
+        <p>I will try to create and upload new cases (somewhat) regularly. Follow on LinkedIn for new example releases, PSCAD tips, model development techniques, debugging lessons, and practical simulation insights.</p>
+      </div>
+      <a class="button button-linkedin follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">
+        Follow on LinkedIn
+      </a>
     </div>
   </div>
 </section>
