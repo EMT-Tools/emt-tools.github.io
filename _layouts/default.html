@@ -263,6 +263,13 @@
       box-shadow: var(--shadow);
       scroll-margin-top: 100px; /* Pushes the card down */
     }
+    
+    .example-card:target {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15);
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+    }
 
     .example-content {
       display: flex;
