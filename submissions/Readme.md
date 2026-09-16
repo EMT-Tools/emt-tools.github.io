@@ -4,7 +4,7 @@ Welcome to the community submission zone for EMT-Tools! To keep our platform saf
 
 ## How to Submit Your Model
 
-**⚠️ Important:** Please package all your files (including `.pscx`, `.f`, or `.txt` descriptions) into a single `.zip` archive before uploading. Our security scanners will only trigger for ZIP files (other than ZIP file, will be automatically rejected by the bot)
+**⚠️ Important:** Please package all your files (including `.pscx`, `.f`, or `.txt` descriptions) into a single `.zip` archive before uploading. Our security scanners will only trigger for ZIP files (other than ZIP file, will be automatically rejected by the bot).
 
 ### Step 1: Fork This Repository
 Click the **Fork** button in the top right corner of this page to create a personal copy of this repository on your own GitHub account.
