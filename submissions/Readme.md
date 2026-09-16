@@ -1,1 +1,1 @@
-Please make a fork and put upload your submissions.
+Please make a fork and upload your submissions.
