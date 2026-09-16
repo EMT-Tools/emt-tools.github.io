@@ -20,4 +20,4 @@
 - [ ] ClamAV passed.
 - [ ] VirusTotal passed.
 - [ ] Downloaded and inspected the raw files locally.
-- [ ] Approved for the `/downloads` folder.
+- [ ] Approved for the `/submissions` folder.
