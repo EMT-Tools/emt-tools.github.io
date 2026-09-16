@@ -1,0 +1,24 @@
+name: Submission Security Pipeline
+on:
+  pull_request_target:
+    paths:
+      - 'submissions/**.zip'
+jobs:
+  scan-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Calculate File Hash
+        run: sha256sum submissions/*.zip > hash_report.txt
+      - name: ClamAV Deep Scan
+        uses: djdefi/gitavscan@v23
+        with:
+          options: '--max-filesize=50M --recursive'
+      - name: VirusTotal API Check
+        uses: crazy-max/ghaction-virustotal@v4
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          files: submissions/*.zip
