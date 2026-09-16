@@ -1,4 +1,4 @@
-# 🚀 EMT-Tools Community Submissions
+#  EMT-Tools Community Submissions
 
 Welcome to the community submission zone for EMT-Tools! To keep our platform safe and secure, all user-submitted PSCAD models are processed through an automated quarantine and scanning pipeline before they are published.
 
