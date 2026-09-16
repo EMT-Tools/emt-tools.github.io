@@ -551,6 +551,11 @@
         trackEvent("linkedin_follow_click", { location: link.dataset.location || "unknown" });
       });
     });
+    document.querySelectorAll(".submit-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        trackEvent("github_submission_click", { location: "contribute_page" });
+      });
+    });
 
     function trackEvent(name, parameters = {}) {
       if (typeof window.gtag === "function") {
