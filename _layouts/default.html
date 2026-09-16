@@ -490,12 +490,13 @@
 
   <section class="disclaimer-section" id="disclaimer">
     <div class="container">
+      {% if page.url != '/contribute/' %}
       <div class="disclaimer-card" style="margin-bottom: 28px;">
         <h2> Contribute to EMT-Tools</h2>
         <p>Have a custom PSCAD model or script you want to share with the community? We welcome public submissions!</p>
         <p style="margin-bottom: 24px;"><strong>Security First:</strong> To protect our users, all submissions are processed through our automated quarantine pipeline, where they are actively scanned by ClamAV and VirusTotal before human review.</p>
-        <a href="https://github.com/EMT-Tools/emt-tools.github.io/tree/main/submissions" target="_blank" class="button button-primary">
-          Submit Your File via GitHub
+        <a href="href="/contribute/" class="button button-primary submit-link" target="_blank" class="button button-primary">
+          Learn How to Submit
         </a>
       </div>
       <div class="disclaimer-card" style="margin-bottom: 28px;">
