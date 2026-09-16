@@ -15,6 +15,7 @@ jobs:
         run: sha256sum submissions/*.zip > hash_report.txt
       - name: ClamAV Deep Scan
         uses: djdefi/gitavscan@v23
+      -name: VirusTotal API Check
         with:
           options: '--max-filesize=50M --recursive'
       - name: VirusTotal API Check
