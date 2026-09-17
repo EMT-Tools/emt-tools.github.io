@@ -1,0 +1,23 @@
+- title: "PSCAD Knowledge Base"
+  author: "MHI"
+  url: "https://www.pscad.com/knowledge-base"
+  description: "The official MHI maintained PSCAD Knowledge Base. Contains many examples and applications."
+  tags: []
+
+- title: "Electromagnetic Transient (EMT) Modeling of Data Centers"
+  author: "National Laboratory of the Rockies (NRL)"
+  url: "https://ieee-dataport.org/open-access/electromagnetic-transient-emt-modeling-data-centers"
+  description: "Detailed PSCAD model for large loads, specifically data centers."
+  tags: ["Large Loads", "Data Centers"]
+
+- title: "PMView"
+  author: "ERCOT"
+  url: "https://share.google/dILDPTWP2gcvNRIVL"
+  description: "Automation tool used in Model Quantity Test (MQT) studies."
+  tags: ["Tool", "Automation", "MQT"]
+
+- title: "Large Load Modelling"
+  author: "Texas A&M University and ERCOT"
+  url: "https://www.ercot.com/about/grit/large-load-modeling"
+  description: "Detailed PSCAD models for large loads specifically data centers and crypto miners."
+  tags: ["Large Loads", "Data Centers", "Crypto Miners"]
