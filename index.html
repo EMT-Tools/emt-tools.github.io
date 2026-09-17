@@ -108,19 +108,19 @@ layout: default
     </div>
   </div>
 </section>
-<section class="examples external-resources-section" style="margin-top: 40px; border-top: 2px solid #eaeaea; padding-top: 40px; background-color: #fcfcfc;">
+<section class="examples external-resources-section" style="margin-top: 40px; border-top: 2px solid #eaeaea; padding-top: 40px;">
   <div class="container">
     <div class="section-heading">
-      <h2>🌐 Community & External Resources</h2>
+      <h2> Community & External Resources</h2>
       <p>The following resources are hosted externally and are not subject to the EMT-Tools MIT License. All rights and credits belong to their original authors.</p>
     </div>
     
     <div class="example-grid" id="external-examples-grid">
       {% for resource in site.data.external %}
-      <article class="example-card" style="background-color: #ffffff; border: 1px solid #dcdcdc; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+      <article class="example-card" style="background-color: #f3f4f6; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
         
         <div class="example-content">
-          <div style="background-color: #e9ecef; padding: 4px 10px; font-size: 0.85em; color: #495057; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
+          <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #334155; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
             👤 Author: {{ resource.author }}
           </div>
           
