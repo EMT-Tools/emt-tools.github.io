@@ -122,6 +122,16 @@ layout: default
       <h2> Community Resources</h2>
       <p>The following resources are hosted externally and are not subject to the EMT-Tools MIT License. All rights and credits belong to their original authors.</p>
     </div>
+
+    <style>
+      /* Force the glow effect when an external card is accessed via a shared link */
+      article[data-source="external"]:target {
+        border-color: #0d5f8e !important;
+        box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15) !important;
+        transform: translateY(-2px) !important;
+        transition: all 0.3s ease !important;
+      }
+    </style>
     
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
@@ -131,7 +141,6 @@ layout: default
           <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           
           <div class="example-content">
-            <!-- Added max-width and line-height to prevent overlap with the Share button -->
             <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
               👤 Author: {{ resource.author }}
             </div>
@@ -159,6 +168,7 @@ layout: default
         {% endfor %}
       </div>
     </div>
+  </div>
 </section>
 
 <section style="padding-bottom: 82px;">
