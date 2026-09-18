@@ -576,7 +576,7 @@
     </div>
   </div>
 
-  <script>
+<script>
     const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/mathiaspielahn/";
     document.querySelectorAll(".follow-link").forEach((link) => {
       link.href = LINKEDIN_PROFILE_URL;
@@ -600,8 +600,13 @@
 
     const searchInput = document.getElementById("exampleSearch");
     const tagFilter = document.getElementById("tagFilter");
+    const sourceFilter = document.getElementById("sourceFilter");
     const examples = Array.from(document.querySelectorAll(".searchable-example"));
     const noResults = document.getElementById("noResults");
+    
+    // Parent sections
+    const internalSection = document.getElementById("internal-section");
+    const externalSection = document.getElementById("external-section");
 
     function getExampleTags(example) {
       return Array.from(example.querySelectorAll(".tag"))
@@ -623,29 +628,46 @@
     }
 
     function filterExamples() {
-      if(!searchInput || !tagFilter) return;
+      if(!searchInput) return;
       const query = searchInput.value.trim().toLowerCase();
-      const selectedTag = tagFilter.value;
-      let visibleCount = 0;
+      const selectedTag = tagFilter ? tagFilter.value : "";
+      const selectedSource = sourceFilter ? sourceFilter.value : "";
+      
+      let internalVisible = 0;
+      let externalVisible = 0;
 
       examples.forEach((example) => {
         const searchableText = (example.textContent + " " + (example.dataset.search || "")).toLowerCase();
         const exampleTags = getExampleTags(example);
+        const exampleSource = example.dataset.source || "";
+        
         const matchesSearch = query === "" || searchableText.includes(query);
         const matchesTag = selectedTag === "" || exampleTags.includes(selectedTag);
-        const matches = matchesSearch && matchesTag;
-
+        const matchesSourceFilter = selectedSource === "" || exampleSource === selectedSource;
+        
+        const matches = matchesSearch && matchesTag && matchesSourceFilter;
         example.style.display = matches ? "" : "none";
-        if (matches) { visibleCount += 1; }
+        
+        if (matches) { 
+          if (exampleSource === "internal") internalVisible++;
+          if (exampleSource === "external") externalVisible++;
+        }
       });
 
-      if(noResults) { noResults.style.display = visibleCount === 0 ? "block" : "none"; }
-      trackEvent("example_filter", { search_term: query, tag: selectedTag || "all", result_count: visibleCount });
+      // Hide the entire section (headings + containers) if it has zero visible items
+      if (internalSection) internalSection.style.display = internalVisible === 0 ? "none" : "";
+      if (externalSection) externalSection.style.display = externalVisible === 0 ? "none" : "";
+      
+      // Show no-results block if BOTH sections are empty
+      if (noResults) noResults.style.display = (internalVisible === 0 && externalVisible === 0) ? "block" : "none";
+      
+      trackEvent("example_filter", { search_term: query, tag: selectedTag, source: selectedSource });
     }
 
     populateTagFilter();
     if(searchInput) searchInput.addEventListener("input", filterExamples);
     if(tagFilter) tagFilter.addEventListener("change", filterExamples);
+    if(sourceFilter) sourceFilter.addEventListener("change", filterExamples);
 
     const shareToast = document.getElementById("shareToast");
     let shareToastTimer;
