@@ -63,37 +63,41 @@ layout: default
       <p>Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.</p>
     </div>
     
-    <div class="example-grid" id="exampleCollection">
-      {% for example in site.examples %}
-      <article class="searchable-example example-card" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
-        <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
-        <div class="example-content">
-          <div class="example-number">Example {{ forloop.index }}</div>
-          <h3>{{ example.title }}</h3>
-          <div class="tags-label">Tags</div>
-          <div aria-label="Tags" class="tags">
-            {% for tag in example.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
+    <!-- WRAPPER ADDED HERE -->
+    <div class="scrollable-grid-container">
+      <div class="example-grid" id="exampleCollection">
+        {% for example in site.examples %}
+        <article class="searchable-example example-card" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+          <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
+          <div class="example-content">
+            <div class="example-number">Example {{ forloop.index }}</div>
+            <h3>{{ example.title }}</h3>
+            <div class="tags-label">Tags</div>
+            <div aria-label="Tags" class="tags">
+              {% for tag in example.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <div class="example-description">
+              {{ example.content }}
+            </div>
+            <br/>
+            <div class="metadata">
+              <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ example.pscad_version | default: "v5.1+" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button">
+                Download Example
+              </button>
+            </div>
           </div>
-          <div class="example-description">
-            {{ example.content }}
-          </div>
-          <br/>
-          <div class="metadata">
-            <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ example.pscad_version | default: "v5.1+" }}</span></div>
-            <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
-            <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
-          </div>
-          <div class="card-actions">
-            <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button">
-              Download Example
-            </button>
-          </div>
-        </div>
-      </article>
-      {% endfor %}
+        </article>
+        {% endfor %}
+      </div>
     </div>
+    <!-- END WRAPPER -->
 
     <div class="no-results" id="noResults">No PSCAD examples match your search.</div>
     
@@ -108,6 +112,7 @@ layout: default
     </div>
   </div>
 </section>
+
 <section class="examples external-resources-section" style="margin-top: 40px; border-top: 2px solid #eaeaea; padding-top: 40px;">
   <div class="container">
     <div class="section-heading">
@@ -117,7 +122,8 @@ layout: default
     
     <div class="example-grid" id="external-examples-grid">
       {% for resource in site.data.external %}
-      <article class="example-card" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+      <!-- searchable-example CLASS ADDED HERE -->
+      <article class="searchable-example example-card" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
         
         <div class="example-content">
           <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
