@@ -126,14 +126,13 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <!-- Added id="{{ resource.title | slugify }}" so the share link works -->
         <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
           
-          <!-- ADDED SHARE BUTTON HERE -->
           <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           
           <div class="example-content">
-            <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
+            <!-- Added max-width and line-height to prevent overlap with the Share button -->
+            <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
               👤 Author: {{ resource.author }}
             </div>
             
