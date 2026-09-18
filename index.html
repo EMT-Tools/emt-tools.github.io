@@ -46,17 +46,34 @@ layout: default
       <h2>Search PSCAD Examples</h2>
       <p>Search by example title, description, application, PSCAD feature, or tag.</p>
       <input aria-label="Search PSCAD examples" class="search-box" id="exampleSearch" placeholder="Try: custom component, EMTDC, controls, automation, ..." type="search"/>
-      <div class="tag-filter-wrap">
-        <label class="tag-filter-label" for="tagFilter">Filter by Tag</label>
-        <select aria-label="Filter PSCAD examples by tag" class="tag-filter" id="tagFilter">
-          <option value="">All Tags</option>
-        </select>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 16px;">
+        <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
+          <label class="tag-filter-label" for="tagFilter">Filter by Tag</label>
+          <select aria-label="Filter PSCAD examples by tag" class="tag-filter" id="tagFilter">
+            <option value="">All Tags</option>
+          </select>
+        </div>
+        <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
+          <label class="tag-filter-label" for="sourceFilter">Filter by Source</label>
+          <select aria-label="Filter by source" class="tag-filter" id="sourceFilter">
+            <option value="">All Resources</option>
+            <option value="internal">EMT-Tools Collection</option>
+            <option value="external">Community & External</option>
+          </select>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="examples" id="examples">
+<!-- Global No Results Message -->
+<div class="container">
+  <div class="no-results" id="noResults" style="margin-top: 10px;">No PSCAD examples match your search.</div>
+</div>
+
+<section class="examples" id="internal-section" style="padding-bottom: 20px;">
   <div class="container">
     <div class="section-heading">
       <h2>PSCAD Collection</h2>
@@ -66,7 +83,7 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="exampleCollection">
         {% for example in site.examples %}
-        <article class="searchable-example example-card" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+        <article class="searchable-example example-card" data-source="internal" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
             <div class="example-number">Example {{ forloop.index }}</div>
@@ -96,32 +113,20 @@ layout: default
         {% endfor %}
       </div>
     </div>
-
-    <div class="no-results" id="noResults">No PSCAD examples match your search.</div>
-    
-    <div class="growth-callout">
-      <div>
-        <h3>Looking for more?</h3>
-        <p>I will try to create and upload new cases (somewhat) regularly. Follow on LinkedIn for new example releases, PSCAD tips, model development techniques, debugging lessons, and practical simulation insights.</p>
-      </div>
-      <a class="button button-linkedin follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">
-        Follow on LinkedIn
-      </a>
-    </div>
   </div>
 </section>
 
-<section class="examples external-resources-section" style="margin-top: 40px; border-top: 2px solid #eaeaea; padding-top: 40px;">
+<section class="examples external-resources-section" id="external-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 40px;">
   <div class="container">
     <div class="section-heading">
-      <h2> Community Resources</h2>
+      <h2>🌐 Community & External Resources</h2>
       <p>The following resources are hosted externally and are not subject to the EMT-Tools MIT License. All rights and credits belong to their original authors.</p>
     </div>
     
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <article class="searchable-example example-card" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+        <article class="searchable-example example-card" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
           
           <div class="example-content">
             <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
@@ -151,6 +156,19 @@ layout: default
         {% endfor %}
       </div>
     </div>
-    
+  </div>
+</section>
+
+<section style="padding-bottom: 82px;">
+  <div class="container">
+    <div class="growth-callout" style="margin-top: 0;">
+      <div>
+        <h3>Looking for more?</h3>
+        <p>I will try to create and upload new cases (somewhat) regularly. Follow on LinkedIn for new example releases, PSCAD tips, model development techniques, debugging lessons, and practical simulation insights.</p>
+      </div>
+      <a class="button button-linkedin follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">
+        Follow on LinkedIn
+      </a>
+    </div>
   </div>
 </section>
