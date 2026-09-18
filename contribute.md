@@ -30,10 +30,28 @@ permalink: /contribute/
     
     <p><em>If you would like to submit an example anonymously, please contact EMT Tools before submitting the package.</em></p>
     
-    <div style="margin-top: 40px; text-align: center;">
-      <a href="https://github.com/EMT-Tools/emt-tools.github.io/tree/main/submissions" target="_blank" class="button button-primary submit-link" style="font-size: 1.1rem; padding: 12px 24px;">
-        Agree and Submit a PSCAD Example
-      </a>
+    <div style="margin-top: 40px; padding: 25px; background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; text-align: center;">
+      <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: bold; color: #333;">
+        <input type="checkbox" id="submissionAgreement" style="width: 20px; height: 20px; cursor: pointer;">
+        I agree to the PSCAD Example Submission Checklist
+      </label>
+      
+      <div style="margin-top: 25px;">
+        <a href="https://github.com/EMT-Tools/emt-tools.github.io/tree/main/submissions" target="_blank" id="submitActionBtn" class="button button-primary submit-link" style="font-size: 1.1rem; padding: 12px 24px;">
+          Submit a PSCAD Example
+        </a>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.getElementById('submitActionBtn').addEventListener('click', function(event) {
+    const agreementCheckbox = document.getElementById('submissionAgreement');
+    
+    if (!agreementCheckbox.checked) {
+      event.preventDefault();
+      alert('Do you agree to the PSCAD Example Submission Checklist? Please check the agreement box before submitting.');
+    }
+  });
+</script>
