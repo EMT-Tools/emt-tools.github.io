@@ -469,6 +469,39 @@
       .about-card, .linkedin-card, .example-content { padding: 23px; }
       .metadata { grid-template-columns: 1fr; }
     }
+
+    /* Custom Scrollable Grid Container */
+    .scrollable-grid-container {
+      max-height: 850px; 
+      overflow-y: auto;
+      padding-right: 15px; 
+      margin-bottom: 20px;
+    }
+
+    .scrollable-grid-container::-webkit-scrollbar {
+      width: 14px;
+    }
+    
+    .scrollable-grid-container::-webkit-scrollbar-track {
+      background: #f8f9fa; 
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .scrollable-grid-container::-webkit-scrollbar-thumb {
+      background-color: #0056b3; 
+      border-radius: 8px;
+      border: 3px solid #f8f9fa; 
+    }
+    
+    .scrollable-grid-container::-webkit-scrollbar-thumb:hover {
+      background-color: #004494; 
+    }
+
+    .scrollable-grid-container {
+      scrollbar-width: auto;
+      scrollbar-color: #0056b3 #f8f9fa;
+    }
   </style>
 </head>
 <body>
