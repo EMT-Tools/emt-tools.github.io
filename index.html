@@ -126,7 +126,11 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <article class="searchable-example example-card" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+        <!-- Added id="{{ resource.title | slugify }}" so the share link works -->
+        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+          
+          <!-- ADDED SHARE BUTTON HERE -->
+          <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           
           <div class="example-content">
             <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold;">
@@ -156,7 +160,6 @@ layout: default
         {% endfor %}
       </div>
     </div>
-  </div>
 </section>
 
 <section style="padding-bottom: 82px;">
