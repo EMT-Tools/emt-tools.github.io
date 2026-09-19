@@ -1,9 +1,3 @@
-- title: "PSCAD Knowledge Base"
-  author: "MHI"
-  url: "https://www.pscad.com/knowledge-base"
-  description: "The official MHI maintained PSCAD Knowledge Base. Contains many examples and applications."
-  tags: []
-
 - title: "Electromagnetic Transient (EMT) Modeling of Data Centers"
   author: "National Laboratory of the Rockies (NRL)"
   url: "https://ieee-dataport.org/open-access/electromagnetic-transient-emt-modeling-data-centers"
@@ -21,3 +15,693 @@
   url: "https://www.ercot.com/about/grit/large-load-modeling"
   description: "Detailed PSCAD models for large loads specifically data centers and crypto miners."
   tags: ["Large Loads", "Data Centers", "Crypto Miners"]
+
+- title: "Single-Phase Battery System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/434"
+  description: "This example implements a generic single-phase battery system in PSCAD and explains the purpose, parameters, and expected behaviour of its main modules."
+  tags: ["Battery", "Energy Storage", "Controls"]
+
+- title: "Three-Phase Battery System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/462"
+  description: "This example implements a three-phase battery energy storage system and documents its controllers, battery model, and representative simulation results."
+  tags: ["Battery", "Energy Storage", "Controls"]
+
+- title: "Distributed Generation - Example 2"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/483"
+  description: "This islandable distributed generation case combines a DFIG wind farm, PV generation, a PV-battery system, and a diesel generator."
+  tags: ["IBR", "Wind", "Type 3", "PV", "Battery", "Energy Storage", "Machines"]
+
+- title: "Distributed Generation: Example 1"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/230"
+  description: "This example provides a base PSCAD model for a distributed generation system and demonstrates how the network should be arranged for subsequent studies."
+  tags: ["IBR", "Wind", "Type 3", "PV", "Machines"]
+
+- title: "3-terminal HVDC link with 2-level VSC terminals"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/191"
+  description: "This three-terminal HVDC example uses two-level VSC terminals with decoupled d-q control. One terminal regulates DC voltage while the other two operate in active-power and AC-voltage control modes."
+  tags: ["HVDC", "Controls"]
+
+- title: "Bidirectional LCC HVDC"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/559"
+  description: "This example demonstrates a line-commutated converter HVDC system capable of bidirectional power transfer."
+  tags: ["HVDC", "Controls"]
+
+- title: "Bipolar HVDC Transmission System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/190"
+  description: "This proof-of-concept example extends the CIGRE monopole benchmark into a bipolar HVDC transmission system."
+  tags: ["HVDC", "Controls"]
+
+- title: "Monopole HVDC Transmission System Cigre Benchmark example"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/189"
+  description: "This example provides the CIGRE monopole HVDC benchmark system used for HVDC control studies in PSCAD."
+  tags: ["HVDC", "Controls", "CIGRE"]
+
+- title: "PSCAD Application Guide and theory workbook"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/283"
+  description: "This workbook and its accompanying examples introduce PSCAD applications across AC systems, power electronics, HVDC, flexible AC transmission, machines, controls, and renewable generation."
+  tags: ["All"]
+
+- title: "MOV Surge Arrester Test - Lightning Strike"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/174"
+  description: "This example evaluates how effectively a metal oxide surge arrester protects a transformer when a direct lightning surge enters one phase of a station."
+  tags: ["Lightning", "Surge Arrester"]
+
+- title: "CIGRE B4-57 working group developed models"
+  organization: "CIGRE Working Group"
+  url: "https://www.pscad.com/knowledge-base/article/57"
+  description: "These CIGRE B4.57 models provide two-, four-, and nine-terminal MMC-based HVDC grid test systems for developing and comparing HVDC converter and grid controls."
+  tags: ["HVDC", "Converters", "Controls", "CIGRE"]
+
+- title: "CIGRE B4.76 working group developed models"
+  organization: "CIGRE Working Group"
+  url: "https://www.pscad.com/knowledge-base/article/800"
+  description: "These CIGRE B4.76 PSCAD models represent isolated and non-isolated DC-to-DC converter configurations developed for HVDC grid applications."
+  tags: ["HVDC", "Converters", "CIGRE"]
+
+- title: "HVDC VSC transmission interconnecting two AC systems"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/222"
+  description: "This download contains several MMC-based VSC HVDC configurations that interconnect AC systems and demonstrate DC-voltage and power-transfer control."
+  tags: ["HVDC", "Converters", "Transmission"]
+
+- title: "HVDC VSC transmission linking an (offshore) islanded wind farm with (onshore) AC grid"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/223"
+  description: "This example connects an islanded offshore wind farm to an onshore AC grid through a symmetrical-monopole MMC HVDC link. The onshore converter controls DC voltage and the offshore converter establishes the wind-farm AC system."
+  tags: ["HVDC", "Converters", "Wind", "Type 3", "Type 4"]
+
+- title: "Photovoltaic-Battery System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/471"
+  description: "This grid-connected PV example uses a battery system to store surplus solar energy and support the load when PV production is insufficient."
+  tags: ["PV", "Battery", "Energy Storage", "Controls"]
+
+- title: "Harmonic Voltage Distortion"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/290"
+  description: "This example uses network harmonic impedance analysis to identify resonances and examine harmonic voltage amplification caused by nonlinear loads."
+  tags: ["Power Quality", "Resonance"]
+
+- title: "Grid-connected Photovoltaic System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/176"
+  description: "This example implements a grid-connected photovoltaic system and explains the function and controllable parameters of its principal modules."
+  tags: ["PV", "Controls"]
+
+- title: "Simple Solar Farm"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/521"
+  description: "This solar farm example includes a power plant controller at the point of connection and demonstrates plant-level control of PV generation."
+  tags: ["PV", "Controls"]
+
+- title: "Type 1 Wind Turbine Generators"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/224"
+  description: "This example models a fixed-speed Type 1 wind turbine using a squirrel-cage induction generator directly connected to the grid through a transformer."
+  tags: ["Type 1", "Wind", "Controls"]
+
+- title: "Type 2 Wind Turbine Generators"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/225"
+  description: "This example models a Type 2 wind turbine using a wound-rotor induction generator and variable rotor resistance for limited speed and power control."
+  tags: ["Type 2", "Wind", "Controls"]
+
+- title: "Type 3 Wind Turbine Generator (WTG)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/495"
+  description: "This PSCAD v4.5 example includes average and detailed Type 3 wind turbine models together with the turbine, pitch controller, drivetrain, and electrical controls."
+  tags: ["Type 3", "Wind", "Controls"]
+
+- title: "Type 3 Wind Turbine Generators (WTG)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/496"
+  description: "This PSCAD v4.6 example includes average and detailed Type 3 wind turbine models together with mechanical and electrical control systems."
+  tags: ["Type 3", "Wind", "Controls"]
+
+- title: "Type 4 Wind Turbine Generators"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/227"
+  description: "This example includes average and detailed Type 4 wind turbine models with the mechanical system, pitch control, full-scale converter, and associated controls."
+  tags: ["Type 4", "Wind", "Controls"]
+
+- title: "Breaker Arc Model"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/262"
+  description: "This breaker model uses the Mayr and Cassie arc equations to represent arc-resistance variation during current interruption."
+  tags: ["Breaker", "Arc"]
+
+- title: "HVDC Breaker"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/259"
+  description: "This example implements a proactive hybrid HVDC breaker concept for interrupting DC fault current in an HVDC grid."
+  tags: ["Breaker", "HVDC"]
+
+- title: "Vacuum Circuit Breaker Reignition"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/260"
+  description: "This single-phase example studies vacuum-breaker current chopping and reignition while interrupting a transformer circuit."
+  tags: ["Breaker"]
+
+- title: "Vacuum Circuit Breaker Restrike"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/261"
+  description: "This example demonstrates voltage escalation caused by restrikes during capacitive-current interruption by a vacuum circuit breaker."
+  tags: ["Breaker"]
+
+- title: "Breaker, Faults and Timed Logic Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/604"
+  description: "This package demonstrates the PSCAD Breaker, Faults and Timed Logic component and provides an accompanying component application example."
+  tags: ["Breaker"]
+
+- title: "Calculating Bode Plots"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/819"
+  description: "This example generates Bode magnitude and phase data over a specified frequency range for real-pole, differential-pole, and related transfer functions."
+  tags: ["Bode Plot"]
+
+- title: "Arc Furnace Model with Voltage Flicker"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/247"
+  description: "This example models an electric arc furnace and the voltage flicker it produces on the connected power system."
+  tags: ["Arc"]
+
+- title: "Battery Model"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/248"
+  description: "This example provides a PSCAD battery and charger model for examining charging, discharging, and energy-storage behavior."
+  tags: ["Battery", "Energy Storage"]
+
+- title: "Superconducting Magnetic Energy Storage (SMES)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/264"
+  description: "This example models a superconducting magnetic energy storage system that exchanges energy with the network to support transient events and then restores its stored energy."
+  tags: ["Energy Storage", "Controls"]
+
+- title: "FDNE Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/677"
+  description: "These examples demonstrate the Frequency-Dependent Network Equivalent component for replacing a detailed external network with a reduced frequency-dependent equivalent."
+  tags: ["FDNE"]
+
+- title: "Fault and Load Settings Variation Using Master-Slave Feature"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/477"
+  description: "This example uses PSCAD Master-Slave simulations to vary fault time, fault type, fault location, and load power across coordinated simulation cases."
+  tags: ["Faults", "Logic"]
+
+- title: "Frequency-Dependent Transfer Function (FDTF)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/611"
+  description: "This example demonstrates a multiport frequency-dependent transfer function represented in state-space form for dynamic system modelling."
+  tags: ["Controls", "Logic"]
+
+- title: "Grid Forming Inverter Models"
+  organization: "Electric Power Research Institute (EPRI), University of Illinois Urbana Champaign, University of Washington, and University of Minnesota"
+  url: "https://www.pscad.com/knowledge-base/article/894"
+  description: "This PSCAD v5 case contains two 100 MVA PV inverter models that can operate in grid-following or grid-forming mode, with a simple network and configurable faults for comparative studies."
+  tags: ["IBR", "Grid Forming (GFM)", "Grid Following (GFL)"]
+
+- title: "How to measure the firing angle (alpha) and distinction angle (gamma)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/193"
+  description: "This example demonstrates a common method for measuring thyristor firing angle alpha and extinction angle gamma in an HVDC converter."
+  tags: ["Controls"]
+
+- title: "Harmonic Current Injection"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/616"
+  description: "This component injects a configurable array of equal-magnitude harmonic currents into a three-phase system for impedance scans and harmonic studies."
+  tags: ["Harmonics", "Dynamic Frequency Scan"]
+
+- title: "Multiple-Run"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/463"
+  description: "This example demonstrates the Multiple-Run component for parametric studies in which selected input values are varied across a series of simulations."
+  tags: ["Automation"]
+
+- title: "Normal Distribution of the Breaker Closing Time Using the Multiple-Run Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/480"
+  description: "This example uses the Multiple-Run component to vary breaker closing time according to a normal distribution and evaluate its effect on system response."
+  tags: ["Breaker", "Automation"]
+
+- title: "IEEE 09 Bus System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/25"
+  description: "This example implements the IEEE 9-bus transmission benchmark in PSCAD and includes supporting technical documentation and validation against PSS/E power-flow results."
+  tags: ["IEEE Benchmarks"]
+
+- title: "IEEE 118 Bus System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/29"
+  description: "This example implements the IEEE 118-bus transmission benchmark in PSCAD and includes supporting technical documentation and validation against PSS/E power-flow results."
+  tags: ["IEEE Benchmarks"]
+
+- title: "IEEE 14 Bus System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/26"
+  description: "This example implements the IEEE 14-bus transmission benchmark in PSCAD and includes supporting technical documentation and validation against PSS/E power-flow results."
+  tags: ["IEEE Benchmarks"]
+
+- title: "IEEE 30 Bus System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/27"
+  description: "This example implements the IEEE 30-bus transmission benchmark in PSCAD and includes supporting technical documentation and validation against PSS/E power-flow results."
+  tags: ["IEEE Benchmarks"]
+
+- title: "IEEE 39 Bus System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/28"
+  description: "This example implements the IEEE 39-bus transmission benchmark in PSCAD and includes supporting technical documentation and validation against PSS/E power-flow results."
+  tags: ["IEEE Benchmarks"]
+
+- title: "Induction Motor - Starting with Star/Delta Switch Configuration"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/828"
+  description: "This example compares an induction motor started in star and later transferred to delta with a motor started directly in delta."
+  tags: ["Machines"]
+
+- title: "Induction Motor - Torque Equation"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/827"
+  description: "This example operates a wound-rotor induction machine in torque mode to demonstrate its torque equation and mechanical damping behavior."
+  tags: ["Machines"]
+
+- title: "Induction Motor Soft-Starter"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/558"
+  description: "This example implements a thyristor-based soft starter for an induction machine and demonstrates its starting sequence and bypass operation."
+  tags: ["Machines"]
+
+- title: "Intermediate Library for PSCAD v4.6.3"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/525"
+  description: "This download provides the evolving Intermediate Library for PSCAD v4.6.3, containing models and fixes developed after the original software release."
+  tags: ["Component Library", "Custom Component"]
+
+- title: "Intermediate Library for PSCAD v5.0"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/808"
+  description: "This download provides the evolving Intermediate Library for PSCAD v5.0, containing post-release models, improvements, and corrections."
+  tags: ["Component Library", "Custom Component"]
+
+- title: "Intermediate Library for PSCAD v5.1"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/946"
+  description: "This download provides the evolving Intermediate Library for PSCAD v5.1, containing post-release models, improvements, and corrections."
+  tags: ["Component Library", "Custom Component"]
+
+- title: "Fast Positive Sequence Phasor (PSP) Based Frequency Measurement Method"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/964"
+  description: "These PSCAD v5.0 and v5.1 examples implement a fast positive-sequence-phasor frequency estimator designed to remain robust during unbalanced faults, phase jumps, and other disturbances."
+  tags: ["Faults", "Controls"]
+
+- title: "Metal Oxide Surge Arrester Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/609"
+  description: "This package demonstrates the PSCAD Metal Oxide Surge Arrester component and provides an application example for its nonlinear protective characteristic."
+  tags: ["Surge Arrester"]
+
+- title: "3 phase power swing with reference to an infinite bus"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/265"
+  description: "This example simulates a three-phase power swing against an infinite-bus reference."
+  tags: ["Machines"]
+
+- title: "AC Fault Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/44"
+  description: "This chapter provides PSCAD cases for transmission-line faults, Multiple-Run fault studies, external fault control, point-on-wave variation, and COMTRADE waveform recording."
+  tags: ["Study", "Faults", "Automation"]
+
+- title: "Synchronous Machine"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/291"
+  description: "This chapter demonstrates synchronous-machine initialization methods and a machine short-circuit test."
+  tags: ["Study", "Machines"]
+
+- title: "Load Flow Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/492"
+  description: "This chapter demonstrates PSCAD load-flow initialization and analysis."
+  tags: ["Study", "Load Flow"]
+
+- title: "Capacitor Bank Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/45"
+  description: "This chapter covers first-bank and back-to-back capacitor switching, energization transients, and related voltage-control studies."
+  tags: ["Study", "Capacitor Bank"]
+
+- title: "Circuit Response Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/46"
+  description: "This chapter examines the response of RL and RLC networks to DC and sinusoidal AC sources."
+  tags: ["Study", "RLC"]
+
+- title: "Ferroresonance Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/48"
+  description: "This chapter demonstrates how ferroresonance can produce sustained power-frequency overvoltage and how the phenomenon can be modelled in PSCAD."
+  tags: ["Study", "Ferroresonance", "Resonance"]
+
+- title: "Induction Machines"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/49"
+  description: "This chapter introduces induction-machine theory and PSCAD models, including starting from rest and from steady-state conditions."
+  tags: ["Study", "Machines"]
+
+- title: "Line Energizing Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/272"
+  description: "This chapter covers transmission-line energization, re-energization with trapped charge, and autotransformer energization with harmonic-resonance concerns."
+  tags: ["Study", "Transmission", "Resonance"]
+
+- title: "Protection Studies"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/275"
+  description: "This chapter demonstrates current-transformer saturation and the parameters that influence protection-system measurement performance."
+  tags: ["Study", "Protection"]
+
+- title: "Reactor Switching Study"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/276"
+  description: "This chapter studies reactor switching and the transient voltages produced when current interruption separates the system into isolated sections."
+  tags: ["Study", "Reactor"]
+
+- title: "Series Compensation Study"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/284"
+  description: "This chapter demonstrates a series-compensated transmission line and metal oxide varistor protection of the series capacitor."
+  tags: ["Study", "Transmission"]
+
+- title: "Permanent magnet machine"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/293"
+  description: "This example demonstrates the dynamic response of a permanent-magnet machine under several transient operating conditions."
+  tags: ["Machines"]
+
+- title: "Phase Locked Loop (PLL) Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/612"
+  description: "This package demonstrates the PSCAD Phase Locked Loop component and provides an example of its use for tracking system phase and frequency."
+  tags: ["Controls"]
+
+- title: "Power Electronic Switch Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/614"
+  description: "This package demonstrates the PSCAD Power Electronic Switch component and provides an associated switching example."
+  tags: ["Controls", "Switches"]
+
+- title: "Grid-Connected VSC with DC Voltage Control"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/256"
+  description: "This example connects a three-phase AC source to a DC system through a six-switch VSC whose controller regulates DC voltage."
+  tags: ["Controls", "Converters", "VSC"]
+
+- title: "Grid-Connected VSC with P Control"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/254"
+  description: "This example connects a three-phase AC source to a DC system through a six-switch VSC whose controller regulates active power transfer."
+  tags: ["Controls", "Converters", "VSC"]
+
+- title: "Voltage Source Converter"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/253"
+  description: "This example provides a voltage source converter case for examining AC-to-DC conversion and converter operation in PSCAD."
+  tags: ["Controls", "Converters", "VSC"]
+
+- title: "Using Simplex Optimum Run to tune a PI Controller"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/263"
+  description: "This example uses the Simplex Optimum Run component to search for proportional and integral gains that optimize a PI-controlled system response."
+  tags: ["Controls", "Automation"]
+
+- title: "Statistical Breaker"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/603"
+  description: "This example demonstrates the PSCAD statistical breaker, which generates normally distributed phase closing times for statistical switching studies."
+  tags: ["Breaker", "Automation"]
+
+- title: "Statistical Breaker Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/610"
+  description: "This package demonstrates the PSCAD Statistical Breaker component and provides an example for statistical switching simulations."
+  tags: ["Breaker"]
+
+- title: "Salient and Non-salient Models for Synchronous Generator"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/292"
+  description: "This example compares salient-pole and non-salient synchronous-generator representations by configuring the q-axis damper-winding model."
+  tags: ["Machines", "Multimass"]
+
+- title: "Three-Phase Voltage Source 1 Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/617"
+  description: "This package demonstrates the PSCAD Three-Phase Voltage Source 1 component and provides an example of its source and control options."
+  tags: ["Sources", "RLC"]
+
+- title: "Auto transformer Example 1"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/269"
+  description: "This example models an autotransformer with electrically connected primary and secondary windings and a tap changer for output-voltage adjustment."
+  tags: ["Transformers"]
+
+- title: "Auto transformer Example 2"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/271"
+  description: "This example models a three-phase star-connected autotransformer with a delta-connected tertiary winding."
+  tags: ["Transformers"]
+
+- title: "Capacitive Voltage Transformer (CVT)"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/289"
+  description: "This example shows the internal composition of the PSCAD capacitive voltage transformer model and compares it with an equivalent explicit electrical circuit."
+  tags: ["Transformers"]
+
+- title: "Custom-Made Duality-Based Transformer Models for PSCAD"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/597"
+  description: "This package provides duality-based transformer models for single-phase, three-limb, five-limb, and other magnetic-core topologies, including saturation-related modelling guidance."
+  tags: ["Transformers"]
+
+- title: "High Frequency Transformer"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/274"
+  description: "This example represents a high-frequency transformer using an admittance matrix derived from an RLC network and electrical-tap components."
+  tags: ["Transformers"]
+
+- title: "On-Load Tap Changer for Transformer"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/498"
+  description: "This example demonstrates an on-load tap changer that regulates transformer load voltage during supply-voltage and power variations."
+  tags: ["Transformers", "OLTC"]
+
+- title: "Remanent (Residual) Flux in Transformer Energization Study"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/466"
+  description: "This example uses PSCAD Master-Slave and Multiple-Run features to vary transformer residual flux and energization time in an inrush study."
+  tags: ["Transformers"]
+
+- title: "Transformer Energization Using Multiple-Run Component"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/484"
+  description: "This example varies transformer energization time with the Multiple-Run component to identify the point-on-wave that produces the highest inrush current."
+  tags: ["Transformers", "Automation"]
+
+- title: "Transformer Saturation Curve Matching in PSCAD™/EMTDC™"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/561"
+  description: "This example uses the MatchSat workspace to determine transformer magnetizing-current and knee-voltage settings that reproduce measured saturation data."
+  tags: ["Transformers"]
+
+- title: "Zig-Zag Transformer for Grounding System"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/482"
+  description: "This example demonstrates a zig-zag grounding transformer used to establish a high-impedance ground reference for delta-connected or otherwise ungrounded systems."
+  tags: ["Transformers"]
+
+- title: "Cable Modeling"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/249"
+  description: "These examples demonstrate conventional cable and pipe-type cable models in PSCAD."
+  tags: ["Transmission", "Cables"]
+
+- title: "Double Circuit Overhead Transmission Line"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/251"
+  description: "This example demonstrates a double-circuit overhead transmission-line model in PSCAD."
+  tags: ["Transmission", "Cables"]
+
+- title: "How to calculate R, L and C parameters of a DC cable/TLine from Line Constant Program output matrix"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/192"
+  description: "This example shows how to derive per-length resistance, inductance, and capacitance values for a DC cable or transmission line from PSCAD Line Constants Program impedance matrices."
+  tags: ["Transmission", "Cables", "RLC"]
+
+- title: "Overhead Lines and Cable Modeling Guidelines for PSCAD"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/872"
+  description: "This package provides PSCAD modelling guidelines and an example for overhead transmission lines and cables in PSCAD v4.6.3 and v5."
+  tags: ["Transmission", "Cables"]
+
+- title: "Transformer Energizing Example with Cable"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/250"
+  description: "This example studies transformer energization through a cable, including the associated inrush and electromagnetic transient response."
+  tags: ["Transmission", "Cables"]
+
+- title: "Transmission Line Mutual Coupling"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/252"
+  description: "This example demonstrates mutual electromagnetic coupling between transmission lines in PSCAD."
+  tags: ["Transmission", "Cables"]
+
+- title: "Trapped Charge Cable Energization"
+  organization: "Manitoba Hydro International (MHI)"
+  url: "https://ww.pscad.com/knowledge-base/article/470"
+  description: "This example demonstrates cable energization with trapped charge and uses a snapshot to reduce the time required to initialize and run the study."
+  tags: ["Transmission", "Cables"]
+
+- title: "Custom Model Building"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/456"
+  description: "This webinar explains how to develop custom PSCAD/EMTDC models and package their logic for simulation. The downloads include the presentation and a model-development example."
+  tags: ["Custom Component"]
+
+- title: "Insulation Coordination Switching Studies"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/458"
+  description: "This webinar demonstrates insulation-coordination and switching-overvoltage studies in PSCAD/EMTDC. The downloads pair the technical presentation with a switching-study example."
+  tags: ["Study", "Switches", "Transmission", "Cables"]
+
+- title: "Lightning Studies"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/286"
+  description: "This webinar covers lightning-overvoltage studies in PSCAD. The downloads include presentation material, a runnable example, and guidance."
+  tags: ["Study", "Lightning"]
+
+- title: "Machine Modeling"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/681"
+  description: "This webinar introduces electrical-machine modeling in PSCAD and provides a presentation together with a downloadable simulation package for following the demonstrated studies."
+  tags: ["Study", "Machines"]
+
+- title: "Machine Modeling and Power System Study Applications"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/489"
+  description: "This webinar applies synchronous- and induction-machine models to power-system studies. The supporting downloads include slides, technical specifications, and PSCAD examples."
+  tags: ["Study", "Machines"]
+
+- title: "Modelling Cables and Transmission Lines"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/363"
+  description: "This examples explains how cables and overhead transmission lines are represented in PSCAD/EMTDC, including model selection, parameterization, and example study cases."
+  tags: ["Transmission", "Cables"]
+
+- title: "Modular Multi-Level Converter (MMC)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/234"
+  description: "This examples introduces modular multilevel converter techniques and their implementation in PSCAD. The downloadable package contains both the presentation and the demonstrated MMC examples."
+  tags: ["Converters", "Controls"]
+
+- title: "Performing Switching and Insulation Studies: Transient Recovery Voltage (TRV) Studies"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/683"
+  description: "Part 1 of this series focuses on transient recovery voltage across circuit breakers after current interruption. The downloads include the webinar presentation and TRV study examples."
+  tags: ["Study", "Switches", "TRV"]
+
+- title: "Performing Switching and Insulation Studies: Switching Overvoltage Studies (SOV)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/684"
+  description: "Part 2 examines switching overvoltages produced by energization and switching operations. The downloads include the presentation and PSCAD switching-study cases."
+  tags: ["Study", "Switches", "Overvoltage"]
+
+- title: "Performing Switching and Insulation Studies: Lightning Overvoltage Studies (LOV)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/685"
+  description: "Part 3 covers lightning-overvoltage studies and the representation of lightning events in PSCAD. The downloads include the presentation and an example case."
+  tags: ["Study", "Lightning", "Overvoltage"]
+
+- title: "Renewable Device Modeling and Harmonic Model Derivation"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/487"
+  description: "This webinar presents renewable-plant aggregation and a method for deriving converter dynamic impedance for harmonic and subsynchronous-control-interaction screening. The package includes slides and PSCAD examples."
+  tags: ["Study", "Harmonics", "Dynamic Frequency Scan"]
+
+- title: "Sub Synchronous Oscillations (SSO) Investigation and Applications"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/340"
+  description: "This webinar with downloadable examples investigates subsynchronous resonance, transient shaft torque, interaction with HVDC controls, and subsynchronous control interaction risks in wind farms."
+  tags: ["Study", "SSO", "SSCI"]
+
+- title: "Transient Recovery Voltage (TRV)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/245"
+  description: "This webinar explains transient recovery voltage studies for circuit-breaker interruption. The downloads include the presentation and the PSCAD example used during the session."
+  tags: ["Study", "TRV"]
+
+- title: "Transient Recovery Voltage (TRV)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/287"
+  description: "This webinar provides another session on transient recovery voltage and circuit-breaker duty. The downloadable materials include the slides and the associated PSCAD example."
+  tags: ["Study", "TRV"]
+
+- title: "Tuning of Power System Stabilizers"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/491"
+  description: "This webinar demonstrates power-system-stabilizer tuning for an example network. It combines time-domain transient-stability simulation with eigenvalue-based small-signal analysis to select and validate PSS parameters."
+  tags: ["Study", "Controls"]
+
+- title: "Wind Power Modelling & Simulation"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/364"
+  description: "This webinar covers wind-power modeling and simulation in PSCAD/EMTDC. The downloadable materials include the technical presentation and wind-farm study examples."
+  tags: ["Study", "Type 3", "Wind"]
+
+- title: "Wind and Solar PV – Temporary Overvoltage Studies (TOV) due to Faults and Feeder Tripping"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/686"
+  description: "This webinar examines temporary overvoltages in wind and solar PV plants following grid faults and feeder tripping, with attention to EMT study setup and system response."
+  tags: ["Study", "Wind", "PV", "Overvoltage", "Faults"]
+
+- title: "Component Design with External Files"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/934"
+  description: "This example shows how a PSCAD control component can reference external source files, object files, static libraries, and dynamic libraries. It focuses on control components and does not cover electrical nodes or branches."
+  tags: ["Custom Component", "Script", "Fortran", "C", "OBJ", "LIB"]
+
+- title: "Library for Reading and Writing *.psout Files"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/950"
+  description: "This download provides x86 and x64 libraries for reading and writing PSCAD psout files. Its paged binary design supports random access to large datasets without loading the complete file into memory."
+  tags: ["Custom Component", "Component Library"]
+
+- title: "A Comprehensive Script Example"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/370"
+  description: "This automation example uses Python to launch PSCAD, configure licensing and the compiler, load and modify a project, run switching studies, organize outputs, place screenshots in Word, and plot results in Excel."
+  tags: ["Python", "Script", "Automation"]
+
+- title: "Network Splitting using Parallel Network Interface (PNI)"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/41"
+  description: "This article explains how the Parallel Network Interface divides a PSCAD network across CPU cores to reduce simulation time. The downloads include a technical specification and an Electric Network Interface example."
+  tags: ["Automation", "PNI"]
+
+- title: "Project Settings for PSCAD Simulation"
+  author: "Manitoba Hydro International (MHI)"
+  url: "https://www.pscad.com/knowledge-base/article/464"
+  description: "This article uses an LR circuit to show how PSCAD project settings affect simulation accuracy. It covers time step selection and the use of the Ideal Branch algorithm, with a technical guide and example case."
+  tags: ["RLC"]
