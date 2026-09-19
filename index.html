@@ -85,47 +85,40 @@ layout: default
       <p>Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. All internal examples are subject to the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.</p>
     </div>
     
-<div class="scrollable-grid-container">
-      <div class="example-grid" id="external-examples-grid">
-        {% for resource in site.data.external %}
-        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
-          
-          <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
-          
+    <div class="scrollable-grid-container">
+      <div class="example-grid" id="exampleCollection">
+        {% for example in site.examples %}
+        <article class="searchable-example example-card" data-source="internal" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+          <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
-            <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-              {% if resource.author and resource.organization %}
-                👤 Author: {{ resource.author }} <span style="margin: 0 6px; color: #64748b;">|</span>  Org: {{ resource.organization }}
-              {% elsif resource.author %}
-                👤 Author: {{ resource.author }}
-              {% elsif resource.organization %}
-                  Organization: {{ resource.organization }}
-              {% endif %}
-            </div>
-            
-            <h3>{{ resource.title }}</h3>
-            
+            <div class="example-number">Example {{ forloop.index }}</div>
+            <h3>{{ example.title }}</h3>
             <div class="tags-label">Tags</div>
             <div aria-label="Tags" class="tags">
-              {% for tag in resource.tags %}
-                <span class="tag">{{ tag }}</span>
+              {% for tag in example.tags %}
+              <span class="tag">{{ tag }}</span>
               {% endfor %}
             </div>
-            
             <div class="example-description">
-              <p>{{ resource.description }}</p>
+              {{ example.content }}
             </div>
-            
-            <div class="card-actions" style="margin-top: 20px;">
-              <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #0056b3; color: #0056b3; background: transparent;">
-                Visit External Site ↗
-              </a>
+            <br/>
+            <div class="metadata">
+              <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ example.pscad_version | default: "v5.1+" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
+            </div>
+            <div class="card-actions">
+              <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button">
+                Download Example
+              </button>
             </div>
           </div>
         </article>
         {% endfor %}
       </div>
     </div>
+  </div>
 </section>
 
 <section class="examples external-resources-section" id="external-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 40px;">
@@ -148,13 +141,19 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }}">
+        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
           
           <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           
           <div class="example-content">
             <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-              👤 Author: {{ resource.author }}
+              {% if resource.author and resource.organization %}
+                👤 Author: {{ resource.author }} <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
+              {% elsif resource.author %}
+                👤 Author: {{ resource.author }}
+              {% elsif resource.organization %}
+                🏢 Organization: {{ resource.organization }}
+              {% endif %}
             </div>
             
             <h3>{{ resource.title }}</h3>
