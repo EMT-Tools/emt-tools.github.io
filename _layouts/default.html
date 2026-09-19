@@ -538,8 +538,7 @@
       <div class="disclaimer-card" style="margin-bottom: 28px;">
         <h2>MIT License</h2>
         <p>
-          By downloading <strong>EMT-Tools</strong> PSCAD resources from this site, you are agreeing to the MIT License terms. These resources are provided under the MIT License. You are free to use, modify, and distribute the material for both personal and commercial purposes. These resources are provided under the MIT License. You are free to use, modify,
-          and distribute the material for both personal and commercial purposes.
+          By downloading <strong>EMT-Tools</strong> PSCAD resources from this site, you are agreeing to the MIT License terms. These resources are provided under the MIT License. You are free to use, modify, and distribute the material for both personal and commercial purposes.
         </p>
         <ul style="margin: 12px 0 12px 24px; color: var(--muted); font-size: 0.9rem; line-height: 1.65;">
           <li>Free for personal and commercial use</li>
@@ -604,6 +603,7 @@
     const sourceFilter = document.getElementById("sourceFilter");
     const examples = Array.from(document.querySelectorAll(".searchable-example"));
     const noResults = document.getElementById("noResults");
+    const resultCountEl = document.getElementById("resultCount");
     
     // Parent sections
     const internalSection = document.getElementById("internal-section");
@@ -660,7 +660,13 @@
       if (externalSection) externalSection.style.display = externalVisible === 0 ? "none" : "";
       
       // Show no-results block if BOTH sections are empty
-      if (noResults) noResults.style.display = (internalVisible === 0 && externalVisible === 0) ? "block" : "none";
+      const totalVisible = internalVisible + externalVisible;
+      if (noResults) noResults.style.display = totalVisible === 0 ? "block" : "none";
+      
+      // Update the counter
+      if (resultCountEl) {
+        resultCountEl.textContent = `${totalVisible} / ${examples.length}`;
+      }
       
       trackEvent("example_filter", { search_term: query, tag: selectedTag, source: selectedSource });
     }
@@ -669,6 +675,9 @@
     if(searchInput) searchInput.addEventListener("input", filterExamples);
     if(tagFilter) tagFilter.addEventListener("change", filterExamples);
     if(sourceFilter) sourceFilter.addEventListener("change", filterExamples);
+    
+    // Run once on load to set the initial counter value
+    filterExamples();
 
     const shareToast = document.getElementById("shareToast");
     let shareToastTimer;
