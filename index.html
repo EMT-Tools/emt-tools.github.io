@@ -47,7 +47,7 @@ layout: default
       <p>Search by example title, description, application, PSCAD feature, or tag.</p>
       <input aria-label="Search PSCAD examples" class="search-box" id="exampleSearch" placeholder="Try: custom component, EMTDC, controls, automation, Author, Organization, ..." type="search"/>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 16px; align-items: end;">
         <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
           <label class="tag-filter-label" for="tagFilter">Filter by Tag</label>
           <select aria-label="Filter PSCAD examples by tag" class="tag-filter" id="tagFilter">
@@ -61,6 +61,11 @@ layout: default
             <option value="internal">EMT-Tools Collection</option>
             <option value="external">External Resources</option>
           </select>
+        </div>
+        
+        <!-- Live Counter Element -->
+        <div style="padding-bottom: 12px; font-weight: 750; color: var(--accent); font-size: 1.05rem; text-align: right;">
+          Showing: <span id="resultCount"></span>
         </div>
       </div>
 
