@@ -149,41 +149,79 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+        
+          {% if resource.submission %}
           
-          <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
+          <!-- SUBMITTED RESOURCE STYLING -->
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+            <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
+            <div class="example-content">
+              <!-- Explicit Community Label -->
+              <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
+                ✦ Community Submission
+              </div>
+              <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
+                {% if resource.author and resource.organization %}
+                  👤 Author: {{ resource.author }} <span style="margin: 0 6px; color: #94a3b8;">|</span> 🏢 Org: {{ resource.organization }}
+                {% elsif resource.author %}
+                  👤 Author: {{ resource.author }}
+                {% elsif resource.organization %}
+                  🏢 Organization: {{ resource.organization }}
+                {% endif %}
+              </div>
+              <h3 style="margin-top: 0;">{{ resource.title }}</h3>
+              <div class="tags-label">Tags</div>
+              <div aria-label="Tags" class="tags">
+                {% for tag in resource.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              <div class="example-description">
+                <p>{{ resource.description }}</p>
+              </div>
+              <div class="card-actions" style="margin-top: 20px;">
+                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid var(--accent); color: var(--accent); background: #ffffff;">
+                  Visit External Site ↗
+                </a>
+              </div>
+            </div>
+          </article>
           
-          <div class="example-content">
-            <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-              {% if resource.author and resource.organization %}
-                👤 Author: {{ resource.author }} <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
-              {% elsif resource.author %}
-                👤 Author: {{ resource.author }}
-              {% elsif resource.organization %}
-                🏢 Organization: {{ resource.organization }}
-              {% endif %}
+          {% else %}
+          
+          <!-- NORMAL EXTERNAL LINK STYLING -->
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+            <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
+            <div class="example-content">
+              <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
+                {% if resource.author and resource.organization %}
+                  👤 Author: {{ resource.author }} <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
+                {% elsif resource.author %}
+                  👤 Author: {{ resource.author }}
+                {% elsif resource.organization %}
+                  🏢 Organization: {{ resource.organization }}
+                {% endif %}
+              </div>
+              <h3>{{ resource.title }}</h3>
+              <div class="tags-label">Tags</div>
+              <div aria-label="Tags" class="tags">
+                {% for tag in resource.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              <div class="example-description">
+                <p>{{ resource.description }}</p>
+              </div>
+              <div class="card-actions" style="margin-top: 20px;">
+                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #0056b3; color: #0056b3; background: transparent;">
+                  Visit External Site ↗
+                </a>
+              </div>
             </div>
-            
-            <h3>{{ resource.title }}</h3>
-            
-            <div class="tags-label">Tags</div>
-            <div aria-label="Tags" class="tags">
-              {% for tag in resource.tags %}
-                <span class="tag">{{ tag }}</span>
-              {% endfor %}
-            </div>
-            
-            <div class="example-description">
-              <p>{{ resource.description }}</p>
-            </div>
-            
-            <div class="card-actions" style="margin-top: 20px;">
-              <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #0056b3; color: #0056b3; background: transparent;">
-                Visit External Site ↗
-              </a>
-            </div>
-          </div>
-        </article>
+          </article>
+          
+          {% endif %}
+          
         {% endfor %}
       </div>
     </div>
@@ -203,3 +241,4 @@ layout: default
     </div>
   </div>
 </section>
+```[cite: 9]
