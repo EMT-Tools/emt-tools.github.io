@@ -13,7 +13,7 @@
   tags: ["Tool", "Automation", "MQT"]
 
 - title: "Large Load Modelling"
-  organization: "Texas A&M University and ERCOT"
+  organization: "Texas A&M University, ERCOT"
   url: "https://www.ercot.com/about/grit/large-load-modeling"
   description: "Detailed PSCAD models for large loads specifically data centers and crypto miners."
   tags: ["Large Loads", "Data Centers", "Crypto Miners"]
