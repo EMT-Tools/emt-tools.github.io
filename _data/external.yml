@@ -1,36 +1,36 @@
 - title: "Electromagnetic Transient (EMT) Modeling of Data Centers"
-  author: "Author: Shahil Shah, Weihang Yan "
-  Organization: "National Laboratory of the Rockies (NRL)"
+  author: "Shahil Shah, Weihang Yan"
+  organization: "National Laboratory of the Rockies (NRL)"
   url: "https://ieee-dataport.org/open-access/electromagnetic-transient-emt-modeling-data-centers"
   description: "This PSCAD case models for key data center components, including power supply units, IT server racks, AC UPS systems, and gas turbine generators. It includes example grid connected and off grid data center configurations for studying converter interactions, disturbances, and grid reliability impacts."
   tags: ["Large Loads", "Data Centers"]
 
 - title: "PMView"
-  author: "Scott Zuloaga and Jonathan Rose and Yunzhi Cheng"
-  Organization: "ERCOT"
+  author: "Scott Zuloaga, Jonathan Rose, Yunzhi Cheng"
+  organization: "ERCOT"
   url: "https://share.google/dILDPTWP2gcvNRIVL"
   description: "Automation tool used in Model Quantity Test (MQT) studies."
   tags: ["Tool", "Automation", "MQT"]
 
 - title: "Large Load Modelling"
-  Organization: "Texas A&M University and ERCOT"
+  organization: "Texas A&M University and ERCOT"
   url: "https://www.ercot.com/about/grit/large-load-modeling"
   description: "Detailed PSCAD models for large loads specifically data centers and crypto miners."
   tags: ["Large Loads", "Data Centers", "Crypto Miners"]
 
- - title: "Data Center Model Library for Electromagnetic Transient Analysis (PSCAD)"
+- title: "Data Center Model Library for Electromagnetic Transient Analysis (PSCAD)"
   author: "Brett Ross, Xue Lyu, Sameer Nekkalapu, Jim Follum"
-   Organization: "Pacific Northwest National Laboratory"
-   url: "https://ieee-dataport.org/open-access/data-center-model-library-electromagnetic-transient-analysis-pscad"
-   description: "This library provides EMT models for studying the grid behavior of large data centers, including UPS systems, power factor correction converters, DC to DC converters, inverters, cooling systems, and backup generation. The models are intended for investigating data center ride through performance, oscillations, stability, and other grid interaction phenomena."
-   tags: ["Large Loads", "Data centers"]
+  organization: "Pacific Northwest National Laboratory"
+  url: "https://ieee-dataport.org/open-access/data-center-model-library-electromagnetic-transient-analysis-pscad"
+  description: "This library provides EMT models for studying the grid behavior of large data centers, including UPS systems, power factor correction converters, DC to DC converters, inverters, cooling systems, and backup generation. The models are intended for investigating data center ride through performance, oscillations, stability, and other grid interaction phenomena."
+  tags: ["Large Loads", "Data Centers"]
 
- - title: "PSCAD simulation model of DFIGs connected to grid via series compensation"
-  author: " Jingshu Shi, Fang Zhang "
-  Organization: "Beijing Jiaotong University"
+- title: "PSCAD simulation model of DFIGs connected to grid via series compensation"
+  author: "Jingshu Shi, Fang Zhang"
+  organization: "Beijing Jiaotong University"
   url: "https://ieee-dataport.org/documents/pscad-simulation-model-dfigs-connected-grid-series-compensation"
   description: "This PSCAD model represents a DFIG based wind farm connected to the grid through a series compensated 500 kV transmission line and is intended for studying subsynchronous oscillations. It demonstrates how interactions between the DFIG rotor side converter, stator inductance, and series compensation can lead to unstable subsynchronous control interaction, with sensitivity to wind speed, turbine count, compensation level, and converter control gains."
-  tags: ["Large Loads", "Data centers"]
+  tags: ["Wind", "SSO", "Study"]
 
 - title: "Single-Phase Battery System"
   organization: "Manitoba Hydro International (MHI)"
@@ -721,8 +721,6 @@
   url: "https://www.pscad.com/knowledge-base/article/464"
   description: "This article uses an LR circuit to show how PSCAD project settings affect simulation accuracy. It covers time step selection and the use of the Ideal Branch algorithm, with a technical guide and example case."
   tags: ["RLC"]
-
-
 
 - title: "i2X EMT Bootcamp PSCAD Examples"
   organization: "Pacific Northwest National Laboratory (PNNL)"
