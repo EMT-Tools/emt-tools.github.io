@@ -4,6 +4,7 @@
   url: "https://ieee-dataport.org/open-access/electromagnetic-transient-emt-modeling-data-centers"
   description: "This PSCAD case models for key data center components, including power supply units, IT server racks, AC UPS systems, and gas turbine generators. It includes example grid connected and off grid data center configurations for studying converter interactions, disturbances, and grid reliability impacts."
   tags: ["Large Loads", "Data Centers"]
+  submission: true
 
 - title: "PMView"
   author: "Scott Zuloaga, Jonathan Rose, Yunzhi Cheng"
