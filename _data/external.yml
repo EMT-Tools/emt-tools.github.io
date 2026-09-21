@@ -20,7 +20,7 @@
 
 - title: "Data Center Model Library for Electromagnetic Transient Analysis (PSCAD)"
   author: "Brett Ross, Xue Lyu, Sameer Nekkalapu, Jim Follum"
-  organization: "Pacific Northwest National Laboratory"
+  organization: "Pacific Northwest National Laboratory (PNNL)"
   url: "https://ieee-dataport.org/open-access/data-center-model-library-electromagnetic-transient-analysis-pscad"
   description: "This library provides EMT models for studying the grid behavior of large data centers, including UPS systems, power factor correction converters, DC to DC converters, inverters, cooling systems, and backup generation. The models are intended for investigating data center ride through performance, oscillations, stability, and other grid interaction phenomena."
   tags: ["Large Loads", "Data Centers"]
