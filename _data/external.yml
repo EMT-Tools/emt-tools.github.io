@@ -705,3 +705,126 @@
   url: "https://www.pscad.com/knowledge-base/article/464"
   description: "This article uses an LR circuit to show how PSCAD project settings affect simulation accuracy. It covers time step selection and the use of the Ideal Branch algorithm, with a technical guide and example case."
   tags: ["RLC"]
+
+
+
+- title: "i2X EMT Bootcamp PSCAD Examples"
+  organization: "Pacific Northwest National Laboratory (PNNL)"
+  url: "https://github.com/pnnl/i2x/tree/master/emt-bootcamp/PSCAD"
+  description: "This collection provides runnable PSCAD training cases for the i2X EMT Bootcamp, including solar inverter and synchronous machine examples in PSCAD V4.6 and V5. The cases progress from basic models to plant testing, faults, average models, switching models, and automated simulation workflows."
+  tags: ["IBR", "PV", "Machines", "Automation", "Script", "Python", "Faults"]
+
+- title: "PyPSCAD Open Source GFL and GFM Models"
+  author: "Rick Wallace Kenyon"
+  organization: "National Renewable Energy Laboratory, University of Colorado Boulder"
+  url: "https://github.com/NatLabRockies/PyPSCAD"
+  description: "This repository contains generic three phase averaged switching grid following and grid forming inverter models with exposed tuning parameters, together with several PSCAD test networks. The models support research on zero inertia systems, frequency dynamics, inverter control order, and droop control."
+  tags: ["IBR", "Grid Forming (GFM)", "Grid Following (GFL)"]
+
+- title: "Open Inverter Based Resource"
+  organization: "Heron Power and OpenIBR"
+  url: "https://github.com/HeronPower/OpenIBR"
+  description: "OpenIBR is an open source grid forming controls library with PSCAD demonstration projects for photovoltaic inverters and solid state transformer applications. It pairs simulation models with matching C language control code intended for direct compilation into inverter firmware."
+  tags: ["IBR", "Grid Forming (GFM)", "Grid Following (GFL)", "BESS", "PV"]
+
+- title: "Z Tool Frequency Domain Stability Analysis"
+  author: "Francisco Javier Cifuentes Garcia, Thomas Roose, Jeroen Tant, Jan Kircheis, Eros Avdiaj, Özgür Can Sakinci"
+  url: "https://github.com/Electa-Git/Z-tool"
+  description: "Z Tool automates frequency domain characterization of PSCAD models and performs small signal stability assessment. Its example PSCAD projects demonstrate voltage perturbation scans, parametric sweeps, transfer function testing, Nyquist analysis, eigenvalue analysis, and passivity assessment."
+  tags: ["Python", "Script", "Automation", "Dynamic Frequency Scan"]
+
+- title: "OpenHybridSim EMT and Transient Stability Hybrid Simulation"
+  author: "Qiuhua Huang, Vijay Vittal"
+  url: "https://github.com/OpenHybridSim/Tool-release"
+  description: "OpenHybridSim is an open source interface between electromagnetic transient and phasor domain transient stability simulation. The release includes PSCAD libraries and IEEE 9 bus test cases that exchange data with the InterPSS based simulation engine through a socket interface."
+  tags: ["IEEE Benchmarks", "Co-Simulation"]
+
+- title: "Modeling and Control Strategy of MMC Based MTDC Transmission System"
+  author: "Feiyang Song"
+  organization: "China University of Mining and Technology"
+  url: "https://github.com/songfy0118/undergrad-thesis-MMC-MTDC"
+  description: "This thesis archive includes the complete PSCAD source model for a modular multilevel converter based multiterminal HVDC system. The model demonstrates DC voltage control, active and reactive power control, and AC to DC power conversion using PSCAD project, module, and workspace files."
+  tags: ["Controls", "HVDC", "Converters"]
+
+- title: "Wind Turbine Grid Connected Simulation in PSCAD"
+  author: "Raein Layegh Pour"
+  organization: "Toronto Metropolitan University"
+  url: "https://github.com/RaeinLayeghPour/Advanced-Wind-Energy-System-Simulation-in-PSCAD"
+  description: "This PSCAD project models a complete wind energy conversion system connected to the grid. It includes turbine dynamics, pitch and torque control, a synchronous generator, an AC to DC to AC converter, DC link protection, a transformer, a point of common coupling, and electrical measurements."
+  tags: ["Wind", "Type 4", "Converters", "Controls"]
+
+- title: "Python PSCAD Automation Course"
+  author: "Jhair Acosta"
+  url: "https://github.com/jsacostas/Course-Python-PSCAD"
+  description: "This public course teaches Python fundamentals and their application to PSCAD automation. The AutomationPSCAD folder contains runnable PSCAD cases used by the course notebooks to demonstrate project control, simulation execution, data handling, and coordinated main and slave cases."
+  tags: ["Python", "Automation", "Script"]
+
+- title: "PSCAD Fortran C Python Multi Program Integration"
+  author: "Wei Gao"
+  url: "https://github.com/weigao-123/PSCAD_Fortran_C_Python-Multi-Program"
+  description: "This example demonstrates communication among PSCAD, Fortran, C, and Python. The included PSCAD project connects an EMT simulation to a Python based reinforcement learning workflow through compiled external code."
+  tags: ["Python", "Fortran", "C", "Script"]
+
+- title: "PSCAD Fault Analysis"
+  author: "Siddharth Singh"
+  url: "https://github.com/downl2160/pscad-fault-analysis"
+  description: "This PSCAD Free Edition project models a single phase line to ground fault, an IEEE 50 instantaneous overcurrent element, and breaker response. It provides a compact educational example of fault current detection and protection logic while documenting limitations of the free software edition."
+  tags: ["Faults", "Protection", "Breakers", "IEEE Benchmarks"]
+
+- title: "LineCableModels PSCAD Exports"
+  organization: "Electa Git contributors"
+  url: "https://github.com/Electa-Git/LineCableModels.jl"
+  description: "LineCableModels is a Julia toolbox for calculating electrical parameters for overhead lines and underground cables. Its examples can export geometry and calculated parameters into PSCAD compatible projects for electromagnetic transient studies of high voltage cable systems."
+  tags: ["Cables", "Transmission"]
+
+- title: "Transformer Inrush PSCAD Examples"
+  author: "Ibrahim Siali"
+  url: "https://github.com/ibrahim-siali/transformer-inrush-pscad_public"
+  description: "This repository provides PSCAD cases for transformer energization and harmonic analysis. The included inrush and harmonic projects allow users to examine transient magnetizing current and its harmonic content."
+  tags: ["Transformers", "Harmonics"]
+
+- title: "PSCAD Blackbox Preparation Tool"
+  author: "Dheeraj Kumar"
+  organization: "TinToSer"
+  url: "https://github.com/TinToSer/pscad-blackbox"
+  description: "This Python tool assists with preparing PSCAD models for blackbox distribution. It includes a CIGRE benchmark PSCAD project that demonstrates the processing workflow and provides a practical test case for protecting model implementation details."
+  tags: ["Blackboxing", "Python", "Automation", "Script", "CIGRE"]
+
+- title: "Power System Analysis with Python PSCAD Benchmark"
+  author: "David Lubkeman"
+  url: "https://github.com/DavidLubkeman/Power_System_Analysis_with_Python"
+  description: "This teaching repository includes a PSCAD benchmark project for an RL circuit fault example. The PSCAD result can be compared with analytical and Python based transient calculations presented in the associated power system analysis material."
+  tags: ["Faults", "Python", "Script", "IEEE Benchmarks"]
+
+- title: "Vacuum Circuit Breaker Reignition Model"
+  author: "Abhi Thorat"
+  url: "https://github.com/AbhiThorat17/vaccum-circuit-breaker"
+  description: "This PSCAD project models reignition behavior in a vacuum circuit breaker. It provides a focused example for studying switching transients and the voltage and current behavior associated with breaker interruption and reignition."
+  tags: ["Breakers", "Switches"]
+
+- title: "Dynamic Modeling of AI Data Center Load in PSCAD"
+  author: "Xiaoyang Wang, Xin Chen, Prasad Enjeti, Fang Chen Lin, Ali Yazdanpanah, Jonathan Rose, Yunzhi Cheng, Amro Quedan, Prashant Kansal"
+  organization: "Texas A&M University, ERCOT"
+  url: "https://zenodo.org/records/21004140"
+  description: "PSCAD model of a UPS based AI data center for studying ride through, protection, operating modes, reconnection, and grid interactions. The model is conceptual and based on publicly available information rather than validated hardware."
+  tags: ["Data Centers", "Large Load", "Study"]
+
+- title: "Dynamic Modeling of Crypto-Miner Load in PSCAD"
+  author: "Xiaoyang Wang, Xin Chen, Prasad Enjeti, Fangchen Lin, Ali Yazdanpanah, Jonathan Rose, Yunzhi Cheng, Prashant Kansal"
+  organization: "Texas A&M University, ERCOT"
+  url: "https://zenodo.org/records/21139096"
+  description: "PSCAD models of crypto mining loads for transmission stability studies, validated against laboratory measurements. The models capture ride through, protection, DC link dynamics, and low frequency impedance behavior, with an efficient average model suitable for large scale simulations."
+  tags: ["Crypto Miners", "Large Load", "Study"]
+
+- title: "Developing Open-Source Converter Models"
+  organization: "The National HVDC Centre, University of Strathclyde"
+  url: "https://www.hvdccentre.com/innovation-projects/open-source-converters/"
+  description: "The project page provides a direct PSCAD model with technical reports. The cases cover half-bridge, full-bridge, hybrid modular multilevel converters, and DC-grid studies using averaged, switching-function, and detailed representations."
+  tags: ["Converters", "HVDC", "Controls"]
+
+- title: "Supplementary Online Repository for Modular Multilevel Converter Hardware and Simulation Comparison"
+  author: "Theodor Heath"
+  organization: "University of Manchester"
+  url: "https://data.mendeley.com/datasets/9sgpn5mdzs/1"
+  description: "This Mendeley Data record includes a downloadable PSCAD Capacitor Balancing Control Component ZIP within the thesis supplementary files. The broader archive also contains converter hardware designs and control implementations used for simulation-to-hardware comparison."
+  tags: ["Converters", "Controls", "Capacitor Bank"]
