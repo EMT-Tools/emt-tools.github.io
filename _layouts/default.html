@@ -597,14 +597,14 @@
       }
     }
 
-    const searchInput = document.getElementById("exampleSearch");
+const searchInput = document.getElementById("exampleSearch");
     const tagFilter = document.getElementById("tagFilter");
     const sourceFilter = document.getElementById("sourceFilter");
+    const orgFilter = document.getElementById("orgFilter"); // New Filter
     const examples = Array.from(document.querySelectorAll(".searchable-example"));
     const noResults = document.getElementById("noResults");
     const resultCountEl = document.getElementById("resultCount");
     
-    // Parent sections
     const internalSection = document.getElementById("internal-section");
     const externalSection = document.getElementById("external-section");
 
@@ -614,7 +614,8 @@
         .filter(Boolean);
     }
 
-    function populateTagFilter() {
+    function populateFilters() {
+      // 1. Populate Tags
       const tags = Array.from(new Set(examples.flatMap(getExampleTags))).sort((a, b) => a.localeCompare(b));
       if(tagFilter) {
         tagFilter.innerHTML = '<option value="">All Tags</option>';
@@ -625,6 +626,18 @@
           tagFilter.appendChild(option);
         });
       }
+
+      // 2. Populate Organizations (dynamically grabbed from data-org)
+      const orgs = Array.from(new Set(examples.map(ex => ex.dataset.org).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+      if(orgFilter) {
+        orgFilter.innerHTML = '<option value="">All Organizations</option>';
+        orgs.forEach((org) => {
+          const option = document.createElement("option");
+          option.value = org;
+          option.textContent = org;
+          orgFilter.appendChild(option);
+        });
+      }
     }
 
     function filterExamples() {
@@ -632,6 +645,7 @@
       const query = searchInput.value.trim().toLowerCase();
       const selectedTag = tagFilter ? tagFilter.value : "";
       const selectedSource = sourceFilter ? sourceFilter.value : "";
+      const selectedOrg = orgFilter ? orgFilter.value : ""; // Grab Org selection
       
       let internalVisible = 0;
       let externalVisible = 0;
@@ -640,12 +654,15 @@
         const searchableText = (example.textContent + " " + (example.dataset.search || "")).toLowerCase();
         const exampleTags = getExampleTags(example);
         const exampleSource = example.dataset.source || "";
+        const exampleOrg = example.dataset.org || "";
         
         const matchesSearch = query === "" || searchableText.includes(query);
         const matchesTag = selectedTag === "" || exampleTags.includes(selectedTag);
         const matchesSourceFilter = selectedSource === "" || exampleSource === selectedSource;
+        const matchesOrgFilter = selectedOrg === "" || exampleOrg === selectedOrg; // Check Org
         
-        const matches = matchesSearch && matchesTag && matchesSourceFilter;
+        // Card must match ALL active filters to be shown
+        const matches = matchesSearch && matchesTag && matchesSourceFilter && matchesOrgFilter;
         example.style.display = matches ? "" : "none";
         
         if (matches) { 
@@ -654,28 +671,23 @@
         }
       });
 
-      // Hide the entire section (headings + containers) if it has zero visible items
       if (internalSection) internalSection.style.display = internalVisible === 0 ? "none" : "";
       if (externalSection) externalSection.style.display = externalVisible === 0 ? "none" : "";
       
-      // Show no-results block if BOTH sections are empty
       const totalVisible = internalVisible + externalVisible;
       if (noResults) noResults.style.display = totalVisible === 0 ? "block" : "none";
       
-      // Update the counter
       if (resultCountEl) {
         resultCountEl.textContent = `${totalVisible} / ${examples.length}`;
       }
-      
-      trackEvent("example_filter", { search_term: query, tag: selectedTag, source: selectedSource });
     }
 
-    populateTagFilter();
+    populateFilters();
     if(searchInput) searchInput.addEventListener("input", filterExamples);
     if(tagFilter) tagFilter.addEventListener("change", filterExamples);
     if(sourceFilter) sourceFilter.addEventListener("change", filterExamples);
+    if(orgFilter) orgFilter.addEventListener("change", filterExamples); // Add Event Listener
     
-    // Run once on load to set the initial counter value
     filterExamples();
 
     const shareToast = document.getElementById("shareToast");
