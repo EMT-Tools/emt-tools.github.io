@@ -63,6 +63,14 @@ layout: default
           </select>
         </div>
         
+        <!-- NEW ORGANIZATION FILTER -->
+        <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
+          <label class="tag-filter-label" for="orgFilter">Filter by Organization</label>
+          <select aria-label="Filter by organization" class="tag-filter" id="orgFilter">
+            <option value="">All Organizations</option>
+          </select>
+        </div>
+        
         <!-- Live Counter Element -->
         <div style="padding-bottom: 12px; font-weight: 750; color: var(--accent); font-size: 1.05rem; text-align: right;">
           Showing: <span id="resultCount"></span>
@@ -88,7 +96,7 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="exampleCollection">
         {% for example in site.examples %}
-        <article class="searchable-example example-card" data-source="internal" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+        <article class="searchable-example example-card" data-source="internal" data-org="" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
             <div class="example-number">Example {{ forloop.index }}</div>
@@ -141,7 +149,7 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+        <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
           
           <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           
