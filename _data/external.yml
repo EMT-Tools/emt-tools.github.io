@@ -30,7 +30,7 @@
   organization: "Beijing Jiaotong University"
   url: "https://ieee-dataport.org/documents/pscad-simulation-model-dfigs-connected-grid-series-compensation"
   description: "This PSCAD model represents a DFIG based wind farm connected to the grid through a series compensated 500 kV transmission line and is intended for studying subsynchronous oscillations. It demonstrates how interactions between the DFIG rotor side converter, stator inductance, and series compensation can lead to unstable subsynchronous control interaction, with sensitivity to wind speed, turbine count, compensation level, and converter control gains."
-  tags: ["Wind", "SSO", "Study"]
+  tags: ["Large Loads", "Data Centers"]
 
 - title: "Single-Phase Battery System"
   organization: "Manitoba Hydro International (MHI)"
