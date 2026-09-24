@@ -614,7 +614,7 @@ const searchInput = document.getElementById("exampleSearch");
         .filter(Boolean);
     }
 
-    function populateFilters() {
+function populateFilters() {
       // 1. Populate Tags
       const tags = Array.from(new Set(examples.flatMap(getExampleTags))).sort((a, b) => a.localeCompare(b));
       if(tagFilter) {
@@ -627,8 +627,18 @@ const searchInput = document.getElementById("exampleSearch");
         });
       }
 
-      // 2. Populate Organizations (dynamically grabbed from data-org)
-      const orgs = Array.from(new Set(examples.map(ex => ex.dataset.org).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+      // 2. Populate Organizations (dynamically split by commas or "and")
+      const orgSet = new Set();
+      examples.forEach((example) => {
+        const orgString = example.dataset.org || "";
+        if (orgString) {
+          // Split the string at any comma or the word "and", clean up spaces, and ignore empty strings
+          const splitOrgs = orgString.split(/,|\band\b/i).map(org => org.trim()).filter(Boolean);
+          splitOrgs.forEach(org => orgSet.add(org));
+        }
+      });
+      
+      const orgs = Array.from(orgSet).sort((a, b) => a.localeCompare(b));
       if(orgFilter) {
         orgFilter.innerHTML = '<option value="">All Organizations</option>';
         orgs.forEach((org) => {
@@ -645,7 +655,7 @@ const searchInput = document.getElementById("exampleSearch");
       const query = searchInput.value.trim().toLowerCase();
       const selectedTag = tagFilter ? tagFilter.value : "";
       const selectedSource = sourceFilter ? sourceFilter.value : "";
-      const selectedOrg = orgFilter ? orgFilter.value : ""; // Grab Org selection
+      const selectedOrg = orgFilter ? orgFilter.value : ""; 
       
       let internalVisible = 0;
       let externalVisible = 0;
@@ -654,12 +664,17 @@ const searchInput = document.getElementById("exampleSearch");
         const searchableText = (example.textContent + " " + (example.dataset.search || "")).toLowerCase();
         const exampleTags = getExampleTags(example);
         const exampleSource = example.dataset.source || "";
-        const exampleOrg = example.dataset.org || "";
+        
+        // Grab the orgs for this specific card and split them the exact same way
+        const exampleOrgString = example.dataset.org || "";
+        const exampleOrgArray = exampleOrgString.split(/,|\band\b/i).map(org => org.trim()).filter(Boolean);
         
         const matchesSearch = query === "" || searchableText.includes(query);
         const matchesTag = selectedTag === "" || exampleTags.includes(selectedTag);
         const matchesSourceFilter = selectedSource === "" || exampleSource === selectedSource;
-        const matchesOrgFilter = selectedOrg === "" || exampleOrg === selectedOrg; // Check Org
+        
+        // Check if the selected dropdown org exists inside this card's split array
+        const matchesOrgFilter = selectedOrg === "" || exampleOrgArray.includes(selectedOrg); 
         
         // Card must match ALL active filters to be shown
         const matches = matchesSearch && matchesTag && matchesSourceFilter && matchesOrgFilter;
