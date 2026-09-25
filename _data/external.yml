@@ -11,7 +11,7 @@
   organization: "ERCOT"
   url: "https://share.google/dILDPTWP2gcvNRIVL"
   description: "Automation tool used in Model Quantity Test (MQT) studies."
-  tags: ["Tool", "Automation", "MQT"]
+  tags: ["Tools", "Automation", "MQT"]
 
 - title: "Large Load Modelling"
   organization: "Texas A&M University, ERCOT"
@@ -848,4 +848,4 @@
   organization: "Nova Scotia Power"
   url: "https://www.nspower.ca/oasis/generation-interconnection-procedures"
   description: "This Nova Scotia Power Model Quality Test automation package is used to run the standardized MQT test suite for PSCAD and PSS®E plant models submitted for interconnection studies. It helps evaluate model robustness, steady state and dynamic response, control performance, fault ride through behaviour, and other NSPI model acceptance requirements using a standardized test setup."
-  tags: ["MQT", "Automation"]
+  tags: ["MQT", "Tools", "Automation"]
