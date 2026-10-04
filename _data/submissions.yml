@@ -46,4 +46,4 @@ and motor-driven cooling loads. Average, switching, and reduced-order converter
 models support studies of internal control interactions, data center-grid
 coupling, and workload power propagation. Two cases demonstrate a complete data
 center model and comparisons between modeling fidelity levels."
-  tags: ["UPS", "Data Centers", "Large Load", "Controls"]
+  tags: ["UPS", "Data Centers", "Large Loads", "Controls"]
