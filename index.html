@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section class="hero">
+<section class="hero" style="padding-bottom: 50px;">
   <div class="container">
     <h1>Free PSCAD Resources</h1>
     <p class="hero-description">
@@ -12,31 +12,6 @@ layout: default
       to provide clear, useful examples that help engineers understand PSCAD concepts,
       explore modelling techniques, debug problems, and build better simulation models.
     </p>
-    <div class="profile-panel">
-      <article class="about-card">
-        <h2>About</h2>
-        <p>I am a power systems electrical engineer specializing in electromagnetic transient model development and simulation, with a particular focus on inverter based resources and wind turbine systems. My work spans detailed PSCAD model development, simulation automation, custom component development, and the creation of specialized tools that extend PSCAD and EMTDC capabilities for complex engineering applications.</p>
-        <p>I have more than 14 years of experience working directly with PSCAD and EMTDC, including extensive experience reviewing and debugging detailed user models, custom components, simulation workflows, and software integration issues. My work has included investigating EMTDC memory corruption, developing and troubleshooting DLL integrations, implementing C-to-Fortran interface wrappers, and resolving low level issues involving compiled code, external libraries, and the interaction between custom models and the EMTDC simulation engine. This experience has provided a detailed understanding not only of how PSCAD models are built and simulated, but also of what happens beneath the graphical interface when those models are compiled and executed.</p>
-        <p>This collection is a passion project of mine. My goal is to share practical PSCAD examples, modelling techniques, and implementation approaches that can be applied to real engineering work. The examples are designed to go beyond basic demonstrations by highlighting useful techniques, common modelling challenges, debugging approaches, and less obvious features of PSCAD and EMTDC that can help engineers develop more robust and effective simulation models.</p>
-        <p>Totally free and open source. <span style="color: red;">❤️</span></p>
-      </article>
-      <aside aria-label="LinkedIn profile" class="linkedin-card">
-        <h2>Follow for More PSCAD Content</h2>
-        <div class="linkedin-profile">
-          <div class="linkedin-avatar">
-            <img alt="Mathias Pielahn" src="/author/Pic.jpeg"/>
-          </div>
-          <div>
-            <div class="linkedin-name">Mathias Pielahn, P. Eng.</div>
-            <div class="linkedin-role">Electrical Engineer | PSCAD EMT | Model Development | Wind Energy</div>
-          </div>
-        </div>
-        <p class="linkedin-copy">Follow me for new free PSCAD examples, model development techniques, debugging tips, lessons from real model reviews, and random thoughts.</p>
-        <div class="linkedin-actions">
-          <a class="button button-linkedin follow-link" data-location="top-profile" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">View / Follow on LinkedIn</a>
-        </div>
-      </aside>
-    </div>
   </div>
 </section>
 
@@ -86,9 +61,26 @@ layout: default
 
 <section class="examples" id="internal-section" style="padding-bottom: 20px;">
   <div class="container">
-    <div class="section-heading">
-      <h2>PSCAD Collection</h2>
-      <p>Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. All internal examples are subject to the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.</p>
+    
+    <!-- UPDATED INTERNAL HEADER WITH COMPACT CURATOR CARD -->
+    <div class="section-heading" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+      <div style="flex: 1 1 500px; max-width: 760px;">
+        <h2 style="margin-bottom: 10px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">PSCAD Collection</h2>
+        <p style="color: var(--muted); text-align: left; line-height: 1.65; max-width: 100%;">
+          Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. All internal examples are subject to the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.
+        </p>
+      </div>
+      
+      <div class="curator-card" style="flex: 0 1 320px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(20, 36, 52, 0.04);">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+          <img src="/author/Pic.jpeg" alt="Mathias Pielahn" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
+          <div>
+            <div style="font-weight: 780; font-size: 0.95rem; color: var(--text);">Mathias Pielahn, P. Eng.</div>
+            <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.3;">EMT-Tools Founder & Curator</div>
+          </div>
+        </div>
+        <a class="button button-linkedin follow-link" data-location="internal-section" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank" style="min-height: 38px; font-size: 0.85rem; padding: 0 12px; width: 100%;">View / Follow on LinkedIn</a>
+      </div>
     </div>
     
     <div class="scrollable-grid-container">
@@ -98,7 +90,13 @@ layout: default
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
             <div class="example-number">Example {{ forloop.index }}</div>
-            <h3>{{ example.title }}</h3>
+            
+            <!-- NEW INTERNAL AUTHOR BADGE -->
+            <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; margin-top: 8px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
+               👤 Author: <a href="{{ example.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px;">{{ example.author | default: 'Mathias Pielahn' }}</a> <span style="margin: 0 6px; color: #94a3b8;">|</span> 🏢 Org: {{ example.organization | default: 'EMT-Tools' }}
+            </div>
+            
+            <h3 style="margin-top: 0;">{{ example.title }}</h3>
             <div class="tags-label">Tags</div>
             <div aria-label="Tags" class="tags">
               {% for tag in example.tags %}
@@ -127,7 +125,6 @@ layout: default
   </div>
 </section>
 
-<!-- NEW SUBMISSIONS SECTION -->
 <section class="examples submissions-section" id="submissions-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 20px;">
   <div class="container">
     <div class="section-heading">
@@ -149,7 +146,7 @@ layout: default
               
               <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
                 {% if resource.author %}
-                   Author(s): 
+                   👤 Author(s): 
                   {% assign authors = resource.author | split: "," %}
                   {% assign linkedins = resource.linkedin | split: "," %}
                   
@@ -165,11 +162,11 @@ layout: default
                   {% endfor %}
 
                   {% if resource.organization %}
-                    <span style="margin: 0 6px; color: #94a3b8;">|</span>  Org: {{ resource.organization }}
+                    <span style="margin: 0 6px; color: #94a3b8;">|</span> 🏢 Org: {{ resource.organization }}
                   {% endif %}
                 
                 {% elsif resource.organization %}
-                   Organization: {{ resource.organization }}
+                   🏢 Organization: {{ resource.organization }}
                 {% endif %}
               </div>
               
@@ -222,7 +219,7 @@ layout: default
             <div class="example-content">
               <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
                 {% if resource.author %}
-                   Author(s): 
+                   👤 Author(s): 
                   {% assign authors = resource.author | split: "," %}
                   {% assign linkedins = resource.linkedin | split: "," %}
                   
@@ -238,11 +235,11 @@ layout: default
                   {% endfor %}
 
                   {% if resource.organization %}
-                    <span style="margin: 0 6px; color: #64748b;">|</span>  Org: {{ resource.organization }}
+                    <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
                   {% endif %}
                 
                 {% elsif resource.organization %}
-                   Organization: {{ resource.organization }}
+                   🏢 Organization: {{ resource.organization }}
                 {% endif %}
               </div>
               <h3 style="margin-top: 0;">{{ resource.title }}</h3>
