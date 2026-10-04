@@ -1,0 +1,7 @@
+- title: "Custom PSCAD Component Example"
+  author: "John Doe, Jane Smith, Alex Chen"
+  linkedin: "https://linkedin.com/in/johndoe, none, https://linkedin.com/in/alexchen"
+  organization: "Tech University"
+  url: "https://github.com/..."
+  description: "A detailed custom component model for..."
+  tags: ["Custom Component", "Controls"]
