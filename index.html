@@ -59,11 +59,11 @@ layout: default
           <select aria-label="Filter by source" class="tag-filter" id="sourceFilter">
             <option value="">All Resources</option>
             <option value="internal">EMT-Tools Collection</option>
+            <option value="submission">Community Submissions</option>
             <option value="external">External Resources</option>
           </select>
         </div>
         
-        <!-- NEW ORGANIZATION FILTER -->
         <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
           <label class="tag-filter-label" for="orgFilter">Filter by Organization</label>
           <select aria-label="Filter by organization" class="tag-filter" id="orgFilter">
@@ -71,7 +71,6 @@ layout: default
           </select>
         </div>
         
-        <!-- Live Counter Element -->
         <div style="padding-bottom: 12px; font-weight: 750; color: var(--accent); font-size: 1.05rem; text-align: right;">
           Showing: <span id="resultCount"></span>
         </div>
@@ -81,7 +80,6 @@ layout: default
   </div>
 </section>
 
-<!-- Global No Results Message -->
 <div class="container">
   <div class="no-results" id="noResults" style="margin-top: 10px;">No PSCAD examples match your search.</div>
 </div>
@@ -116,8 +114,8 @@ layout: default
               <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
               <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
             </div>
-            <div class="card-actions">
-              <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button">
+            <div class="card-actions" style="margin-top: auto;">
+              <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button" style="width: 100%;">
                 Download Example
               </button>
             </div>
@@ -129,15 +127,84 @@ layout: default
   </div>
 </section>
 
+<!-- NEW SUBMISSIONS SECTION -->
+<section class="examples submissions-section" id="submissions-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 20px;">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Community Submissions</h2>
+      <p>The following PSCAD cases and scripts have been generously contributed by the engineering community. They are hosted externally and maintain their own licenses and credits.</p>
+    </div>
+    
+    <div class="scrollable-grid-container">
+      <div class="example-grid" id="submissions-grid">
+        {% for resource in site.data.submissions %}
+        
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
+            <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
+            <div class="example-content">
+              
+              <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
+                ✦ Community Submission
+              </div>
+              
+              <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
+                {% if resource.author %}
+                  👤 Author(s): 
+                  {% assign authors = resource.author | split: "," %}
+                  {% assign linkedins = resource.linkedin | split: "," %}
+                  
+                  {% for author in authors %}
+                    {% assign author_clean = author | strip %}
+                    {% assign link_clean = linkedins[forloop.index0] | strip %}
+                    
+                    {% if link_clean and link_clean != "" and link_clean != "none" %}
+                      <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px;">{{ author_clean }}</a>
+                    {% else %}
+                      {{ author_clean }}
+                    {% endif %}{% unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+
+                  {% if resource.organization %}
+                    <span style="margin: 0 6px; color: #94a3b8;">|</span> 🏢 Org: {{ resource.organization }}
+                  {% endif %}
+                
+                {% elsif resource.organization %}
+                  🏢 Organization: {{ resource.organization }}
+                {% endif %}
+              </div>
+              
+              <h3 style="margin-top: 0;">{{ resource.title }}</h3>
+              <div class="tags-label">Tags</div>
+              <div aria-label="Tags" class="tags">
+                {% for tag in resource.tags %}
+                  <span class="tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              <div class="example-description">
+                <p>{{ resource.description }}</p>
+              </div>
+              <div class="card-actions" style="margin-top: auto; padding-top: 20px;">
+                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-primary" style="width: 100%; text-align: center;">
+                  View Submission ↗
+                </a>
+              </div>
+            </div>
+          </article>
+          
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="examples external-resources-section" id="external-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 40px;">
   <div class="container">
     <div class="section-heading">
-      <h2> Community Resources</h2>
+      <h2> External Resources</h2>
       <p>The following resources are hosted externally and are not subject to the EMT-Tools MIT License. All rights and credits belong to their original authors.</p>
     </div>
 
     <style>
-      /* Force the glow effect when an external card is accessed via a shared link */
       article[data-source="external"]:target {
         border-color: #0d5f8e !important;
         box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15) !important;
@@ -149,24 +216,33 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
-        
-          {% if resource.submission %}
           
-          <!-- SUBMITTED RESOURCE STYLING -->
-          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
-              <!-- Explicit Community Label -->
-              <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
-                ✦ Community Submission
-              </div>
-              <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-                {% if resource.author and resource.organization %}
-                  Author: {{ resource.author }} <span style="margin: 0 6px; color: #94a3b8;">|</span> Org: {{ resource.organization }}
-                {% elsif resource.author %}
-                  Author: {{ resource.author }}
+              <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
+                {% if resource.author %}
+                  👤 Author(s): 
+                  {% assign authors = resource.author | split: "," %}
+                  {% assign linkedins = resource.linkedin | split: "," %}
+                  
+                  {% for author in authors %}
+                    {% assign author_clean = author | strip %}
+                    {% assign link_clean = linkedins[forloop.index0] | strip %}
+                    
+                    {% if link_clean and link_clean != "" and link_clean != "none" %}
+                      <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; text-underline-offset: 2px;">{{ author_clean }}</a>
+                    {% else %}
+                      {{ author_clean }}
+                    {% endif %}{% unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+
+                  {% if resource.organization %}
+                    <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
+                  {% endif %}
+                
                 {% elsif resource.organization %}
-                  Organization: {{ resource.organization }}
+                  🏢 Organization: {{ resource.organization }}
                 {% endif %}
               </div>
               <h3 style="margin-top: 0;">{{ resource.title }}</h3>
@@ -179,48 +255,13 @@ layout: default
               <div class="example-description">
                 <p>{{ resource.description }}</p>
               </div>
-              <div class="card-actions" style="margin-top: 20px;">
-                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid var(--accent); color: var(--accent); background: #ffffff;">
-                  View Files  ↗
-                </a>
-              </div>
-            </div>
-          </article>
-          
-          {% else %}
-          
-          <!-- NORMAL EXTERNAL LINK STYLING -->
-          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
-            <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
-            <div class="example-content">
-              <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-                {% if resource.author and resource.organization %}
-                  Author: {{ resource.author }} <span style="margin: 0 6px; color: #64748b;">|</span> Org: {{ resource.organization }}
-                {% elsif resource.author %}
-                  Author: {{ resource.author }}
-                {% elsif resource.organization %}
-                  Organization: {{ resource.organization }}
-                {% endif %}
-              </div>
-              <h3>{{ resource.title }}</h3>
-              <div class="tags-label">Tags</div>
-              <div aria-label="Tags" class="tags">
-                {% for tag in resource.tags %}
-                  <span class="tag">{{ tag }}</span>
-                {% endfor %}
-              </div>
-              <div class="example-description">
-                <p>{{ resource.description }}</p>
-              </div>
-              <div class="card-actions" style="margin-top: 20px;">
+              <div class="card-actions" style="margin-top: auto; padding-top: 20px;">
                 <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #0056b3; color: #0056b3; background: transparent;">
                   Visit External Site ↗
                 </a>
               </div>
             </div>
           </article>
-          
-          {% endif %}
           
         {% endfor %}
       </div>
@@ -241,4 +282,3 @@ layout: default
     </div>
   </div>
 </section>
-
