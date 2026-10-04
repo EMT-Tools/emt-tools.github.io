@@ -704,6 +704,7 @@ function populateFilters() {
 
       if (internalSection) internalSection.style.display = internalVisible === 0 ? "none" : "";
       if (externalSection) externalSection.style.display = externalVisible === 0 ? "none" : "";
+      if (submissionsSection) submissionsSection.style.display = submissionVisible === 0 ? "none" : "";
       
       const totalVisible = internalVisible + externalVisible + submissionVisible;
       if (noResults) noResults.style.display = totalVisible === 0 ? "block" : "none";
