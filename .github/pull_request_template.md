@@ -3,6 +3,21 @@
 
 ---
 
+###  Author Information
+**Author Name(s):**
+<!-- Enter the names of the creators. If there are multiple authors, separate them with a comma (e.g., Jane Doe, John Smith) -->
+[Your Name(s) Here]
+
+**Organization:**
+<!-- Enter your organization or company name. If multiple organizations, separate them with a comma. Single names with "and" are fine (e.g., China University of Mining and Technology). -->
+[Your Organization Here]
+
+**LinkedIn URL(s) (Optional):**
+<!-- Enter LinkedIn profile URLs in the EXACT SAME ORDER as the names above, separated by commas. If an author doesn't have a LinkedIn, write 'none' in their spot (e.g., https://linkedin.com/in/janedoe, none, https://linkedin.com/in/johnsmith) -->
+[Your LinkedIn URL(s) Here]
+
+---
+
 ###  Submission Terms & "How It Works"
 - **Review Process:** EMT Tools reviews submissions in the order they are received on a volunteer basis. Submissions not meeting requirements may be returned for revision.
 - **Credit:** Original authors are credited on the EMT Tools download section and within the main PSCAD case.
