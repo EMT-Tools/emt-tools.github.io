@@ -859,14 +859,14 @@
   organization: "Texas A&M University, ERCOT"
   url: "https://zenodo.org/records/21004140"
   description: "PSCAD model of a UPS based AI data center for studying ride through, protection, operating modes, reconnection, and grid interactions. The model is conceptual and based on publicly available information rather than validated hardware."
-  tags: ["Data Centers", "Large Load", "Study"]
+  tags: ["Data Centers", "Large Loads", "Study"]
 
 - title: "Dynamic Modeling of Crypto-Miner Load in PSCAD"
   author: "Xiaoyang Wang, Xin Chen, Prasad Enjeti, Fangchen Lin, Ali Yazdanpanah, Jonathan Rose, Yunzhi Cheng, Prashant Kansal"
   organization: "Texas A&M University, ERCOT"
   url: "https://zenodo.org/records/21139096"
   description: "PSCAD models of crypto mining loads for transmission stability studies, validated against laboratory measurements. The models capture ride through, protection, DC link dynamics, and low frequency impedance behavior, with an efficient average model suitable for large scale simulations."
-  tags: ["Crypto Miners", "Large Load", "Study"]
+  tags: ["Crypto Miners", "Large Loads", "Study"]
 
 - title: "Developing Open-Source Converter Models"
   organization: "The National HVDC Centre, University of Strathclyde"
