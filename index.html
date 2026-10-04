@@ -146,30 +146,36 @@ layout: default
                 ✦ Community Submission
               </div>
               
-              <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-                {% if resource.author %}
-                    Author(s): 
-                  {% assign authors = resource.author | split: "," %}
-                  {% assign linkedins = resource.linkedin | split: "," %}
-                  
-                  {% for author in authors %}
-                    {% assign author_clean = author | strip %}
-                    {% assign link_clean = linkedins[forloop.index0] | strip %}
-                    
-                    {% if link_clean and link_clean != "" and link_clean != "none" %}
-                      <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px;">{{ author_clean }}</a>
-                    {% else %}
-                      {{ author_clean }}
-                    {% endif %}{% unless forloop.last %}, {% endunless %}
-                  {% endfor %}
-
-                  {% if resource.organization %}
-                    <span style="margin: 0 6px; color: #94a3b8;">|</span>  Org: {{ resource.organization }}
-                  {% endif %}
+              <div style="background-color: #e2e8f0; padding: 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
                 
-                {% elsif resource.organization %}
-                    Organization: {{ resource.organization }}
+                {% if resource.author %}
+                <div style="display: flex; margin-bottom: 8px;">
+                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Author(s):</div>
+                  <div style="display: flex; flex-direction: column; gap: 3px;">
+                    {% assign authors = resource.author | split: "," %}
+                    {% assign linkedins = resource.linkedin | split: "," %}
+                    
+                    {% for author in authors %}
+                      {% assign author_clean = author | strip %}
+                      {% assign link_clean = linkedins[forloop.index0] | strip %}
+                      
+                      {% if link_clean and link_clean != "" and link_clean != "none" %}
+                        <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px; font-weight: 700;">{{ author_clean }}</a>
+                      {% else %}
+                        <span style="font-weight: 700;">{{ author_clean }}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
                 {% endif %}
+
+                {% if resource.organization %}
+                <div style="display: flex;">
+                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Org:</div>
+                  <div style="font-weight: 700;">{{ resource.organization }}</div>
+                </div>
+                {% endif %}
+                
               </div>
               
               <h3 style="margin-top: 0;">{{ resource.title }}</h3>
