@@ -1,3 +1,40 @@
+# =====================================================================
+# EMT-TOOLS RESOURCE TEMPLATE & GUIDE
+# =====================================================================
+# Please use this guide when adding new resources to ensure the 
+# search filters and author hyperlinks render correctly on the site.
+# 
+# RULES FOR AUTHORS & LINKEDIN:
+# 1. Multiple Authors: Separate names with a comma. 
+#    (e.g., author: "Mathias Pielahn, John Doe, Jane Smith")
+# 2. LinkedIn Links: Must match the exact order of the authors, separated by commas.
+# 3. Missing Links: If one person doesn't have a LinkedIn, use the word "none" in their spot.
+#    (e.g., linkedin: "https://linkedin.com/in/mathias, none, https://linkedin.com/in/jane")
+# 
+# RULES FOR ORGANIZATIONS:
+# 1. Multiple Orgs: Separate them with a comma, NOT the word "and". 
+#    (e.g., YES: "Manitoba Hydro, MHI" | NO: "Manitoba Hydro and MHI")
+# 2. Names with "and": Single orgs with "and" in the title are fine. 
+#    (e.g., "China University of Mining and Technology" will group perfectly).
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# 1. EXTERNAL & SUBMISSIONS (_data/external.yml & _data/submissions.yml)
+# ---------------------------------------------------------------------
+# Copy and paste this block for new external links or community submissions:
+
+#- title: "Title of the Resource"
+# author: "Author One, Author Two"
+#  linkedin: "https://linkedin.com/in/one, none" 
+#  organization: "Company A, Company B"
+#  url: "https://github.com/..."
+#  description: "A clear description for SEO and AI crawlers..."
+#  tags: ["Controls", "Inverters", "Custom Component"]
+
+# ---------------------------------------------------------------------
+
+
+
 - title: "Custom PSCAD Component Example"
   author: "John Doe, Jane Smith, Alex Chen"
   linkedin: "https://linkedin.com/in/johndoe, none, https://linkedin.com/in/alexchen"
