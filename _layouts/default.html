@@ -622,7 +622,7 @@ const searchInput = document.getElementById("exampleSearch");
     
     const internalSection = document.getElementById("internal-section");
     const externalSection = document.getElementById("external-section");
-
+    const submissionsSection = document.getElementById("submissions-section");
     function getExampleTags(example) {
       return Array.from(example.querySelectorAll(".tag"))
         .map((tag) => tag.textContent.trim())
@@ -674,7 +674,7 @@ function populateFilters() {
       
       let internalVisible = 0;
       let externalVisible = 0;
-
+      let submissionVisible = 0;
       examples.forEach((example) => {
         const searchableText = (example.textContent + " " + (example.dataset.search || "")).toLowerCase();
         const exampleTags = getExampleTags(example);
@@ -698,13 +698,14 @@ function populateFilters() {
         if (matches) { 
           if (exampleSource === "internal") internalVisible++;
           if (exampleSource === "external") externalVisible++;
+          if (exampleSource === "submission") submissionVisible++;
         }
       });
 
       if (internalSection) internalSection.style.display = internalVisible === 0 ? "none" : "";
       if (externalSection) externalSection.style.display = externalVisible === 0 ? "none" : "";
       
-      const totalVisible = internalVisible + externalVisible;
+      const totalVisible = internalVisible + externalVisible + submissionVisible;
       if (noResults) noResults.style.display = totalVisible === 0 ? "block" : "none";
       
       if (resultCountEl) {
