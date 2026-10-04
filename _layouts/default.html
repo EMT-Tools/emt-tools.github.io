@@ -648,7 +648,7 @@ function populateFilters() {
         const orgString = example.dataset.org || "";
         if (orgString) {
           // Split the string at any comma or the word "and", clean up spaces, and ignore empty strings
-          const splitOrgs = orgString.split(/,|\band\b/i).map(org => org.trim()).filter(Boolean);
+          const splitOrgs = orgString.split(',').map(org => org.trim()).filter(Boolean);
           splitOrgs.forEach(org => orgSet.add(org));
         }
       });
@@ -682,7 +682,7 @@ function populateFilters() {
         
         // Grab the orgs for this specific card and split them the exact same way
         const exampleOrgString = example.dataset.org || "";
-        const exampleOrgArray = exampleOrgString.split(/,|\band\b/i).map(org => org.trim()).filter(Boolean);
+        const exampleOrgArray = exampleOrgString.split(',').map(org => org.trim()).filter(Boolean);
         
         const matchesSearch = query === "" || searchableText.includes(query);
         const matchesTag = selectedTag === "" || exampleTags.includes(selectedTag);
