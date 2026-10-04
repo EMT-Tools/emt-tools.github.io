@@ -35,10 +35,15 @@
 
 
 
-- title: "Custom PSCAD Component Example"
+- title: "Data Center EMT Model"
   author: "Xingyu Zhao, Yingyi Tang, Junbo Zhao"
   linkedin: "https://www.linkedin.com/in/xingyu-zhao-b9b55b21b?utm_source=share_via&utm_content=profile&utm_medium=member_android, none, https://www.linkedin.com/in/junbo-zhao-7b8254a6"
   organization: "Tech University"
   url: "https://github.com/EMT-Tools/emt-tools.github.io/blob/main/submissions/DC-EMT_v0.zip"
-  description: "A detailed custom component model for..."
+  description: "This example provides a modular EMT model of data center loads supplied by a
+centralized UPS. It includes power electronic converters, IT workload profiles,
+and motor-driven cooling loads. Average, switching, and reduced-order converter
+models support studies of internal control interactions, data center-grid
+coupling, and workload power propagation. Two cases demonstrate a complete data
+center model and comparisons between modeling fidelity levels."
   tags: ["UPS", "Datacenters", "Large Load", "Controls"]
