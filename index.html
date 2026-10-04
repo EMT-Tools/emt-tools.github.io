@@ -64,7 +64,6 @@ layout: default
 <section class="examples" id="internal-section" style="padding-bottom: 20px;">
   <div class="container">
     
-    <!-- UPDATED INTERNAL HEADER WITH COMPACT CURATOR CARD -->
     <div class="section-heading" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; margin-bottom: 30px;">
       <div style="flex: 1 1 500px; max-width: 760px;">
         <h2 style="margin-bottom: 10px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">PSCAD Collection</h2>
@@ -93,7 +92,6 @@ layout: default
           <div class="example-content">
             <div class="example-number">Example {{ forloop.index }}</div>
             
-            <!-- NEW INTERNAL AUTHOR BADGE -->
             <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; margin-top: 8px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
                 Author: <a href="{{ example.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px;">{{ example.author | default: 'Mathias Pielahn' }}</a> <span style="margin: 0 6px; color: #94a3b8;">|</span>  Org: {{ example.organization | default: 'EMT-Tools' }}
             </div>
@@ -146,7 +144,7 @@ layout: default
                 ✦ Community Submission
               </div>
               
-              <div style="background-color: #e2e8f0; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
+              <div style="background-color: #e2e8f0; padding: 12px 14px; margin-right: 75px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
                 
                 {% if resource.author %}
                 <div style="display: flex; margin-bottom: 8px;">
@@ -225,7 +223,7 @@ layout: default
           <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
-              <div style="background-color: #cbd5e1; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);">
+              <div style="background-color: #cbd5e1; padding: 12px 14px; margin-right: 75px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);">
                 
                 {% if resource.author %}
                 <div style="display: flex; margin-bottom: 8px;">
