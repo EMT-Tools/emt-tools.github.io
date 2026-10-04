@@ -15,7 +15,7 @@
 *By placing an 'x' in the boxes below, you confirm that your submission meets all requirements and you agree to the submission terms.*
 
 - [ ] **Licensing:** I agree to distribute the submitted material under the MIT License, and I confirm I have the right to distribute all included material.
-- [ ] **PSCAD Version:** This model was created using PSCAD v5.1 or newer, or the PSCAD Free Edition.
+- [ ] **PSCAD Version:** This model was created using PSCAD v5.0 or newer, or the PSCAD Free Edition.
 - [ ] **Technical Relevance:** This submission demonstrates a concept relevant to power systems (e.g., modelling, automation, custom components, EMTDC programming, verification, or educational examples).
 - [ ] **External Resources:** This submission does not depend on proprietary or closed-source external compiled resources (e.g., `.lib`, `.obj`, `.dll`). All required external source code is included.
 - [ ] **Compilation & Runtime:** The model compiles and runs successfully with **no red error messages** and **no unexplained yellow warning messages**. (Compiler-dependent warnings are accepted only if unavoidable and clearly documented).
