@@ -149,7 +149,7 @@ layout: default
               
               <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
                 {% if resource.author %}
-                  👤 Author(s): 
+                   Author(s): 
                   {% assign authors = resource.author | split: "," %}
                   {% assign linkedins = resource.linkedin | split: "," %}
                   
@@ -165,11 +165,11 @@ layout: default
                   {% endfor %}
 
                   {% if resource.organization %}
-                    <span style="margin: 0 6px; color: #94a3b8;">|</span> 🏢 Org: {{ resource.organization }}
+                    <span style="margin: 0 6px; color: #94a3b8;">|</span>  Org: {{ resource.organization }}
                   {% endif %}
                 
                 {% elsif resource.organization %}
-                  🏢 Organization: {{ resource.organization }}
+                   Organization: {{ resource.organization }}
                 {% endif %}
               </div>
               
@@ -222,7 +222,7 @@ layout: default
             <div class="example-content">
               <div style="background-color: #cbd5e1; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
                 {% if resource.author %}
-                  👤 Author(s): 
+                   Author(s): 
                   {% assign authors = resource.author | split: "," %}
                   {% assign linkedins = resource.linkedin | split: "," %}
                   
@@ -238,11 +238,11 @@ layout: default
                   {% endfor %}
 
                   {% if resource.organization %}
-                    <span style="margin: 0 6px; color: #64748b;">|</span> 🏢 Org: {{ resource.organization }}
+                    <span style="margin: 0 6px; color: #64748b;">|</span>  Org: {{ resource.organization }}
                   {% endif %}
                 
                 {% elsif resource.organization %}
-                  🏢 Organization: {{ resource.organization }}
+                   Organization: {{ resource.organization }}
                 {% endif %}
               </div>
               <h3 style="margin-top: 0;">{{ resource.title }}</h3>
