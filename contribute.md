@@ -18,7 +18,7 @@ permalink: /contribute/
     <p>Before submitting your model, please confirm that all of the following requirements are satisfied.</p>
     
     <ul style="margin-left: 24px; margin-bottom: 20px; line-height: 1.6;">
-      <li><strong>PSCAD Version:</strong> PSCAD cases (<code>.pscx</code>) and libraries (<code>.pslx</code>) must be created using PSCAD v5.1 or newer. Models created using the PSCAD Free Edition are accepted.</li>
+      <li><strong>PSCAD Version:</strong> PSCAD cases (<code>.pscx</code>) and libraries (<code>.pslx</code>) must be created using PSCAD v5.0 or newer. Models created using the PSCAD Free Edition are accepted.</li>
       <li><strong>Technical Relevance:</strong> The submission must demonstrate a concept relevant to power systems or a related technical area (e.g., modelling, automation, component development, educational examples).</li>
       <li><strong>External Resources:</strong> The submission must not depend on proprietary or closed source external compiled resources such as <code>.lib</code>, <code>.obj</code>, or <code>.dll</code> files. Any external source code required must be included.</li>
       <li><strong>Compilation and Runtime:</strong> The submitted model must compile and run successfully with no red error messages and no unexplained yellow warning messages.</li>
