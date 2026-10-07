@@ -22,7 +22,7 @@ layout: default
     <div class="search-panel">
       <h2>Search PSCAD Examples</h2>
       <p>Search by example title, description, application, PSCAD feature, or tag.</p>
-      <input aria-label="Search PSCAD examples" class="search-box" id="exampleSearch" placeholder="Try: controls, large loads, Fortran, ..." type="search"/>
+      <input aria-label="Search PSCAD examples" class="search-box" id="exampleSearch" placeholder="Try: custom component, EMTDC, controls, automation, Author, Organization, ..." type="search"/>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 16px; align-items: end;">
         <div class="tag-filter-wrap" style="max-width: none; margin-top: 0;">
@@ -35,7 +35,6 @@ layout: default
           <label class="tag-filter-label" for="sourceFilter">Filter by Source</label>
           <select aria-label="Filter by source" class="tag-filter" id="sourceFilter">
             <option value="">All Resources</option>
-            <option value="internal">EMT-Tools Collection</option>
             <option value="submission">Community Submissions</option>
             <option value="external">External Resources</option>
           </select>
@@ -61,39 +60,56 @@ layout: default
   <div class="no-results" id="noResults" style="margin-top: 10px;">No PSCAD examples match your search.</div>
 </div>
 
-<section class="examples" id="internal-section" style="padding-bottom: 20px;">
+<section class="examples submissions-section" id="submissions-section" style="padding-bottom: 20px;">
   <div class="container">
-    
-    <div class="section-heading" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-      <div style="flex: 1 1 500px; max-width: 760px;">
-        <h2 style="margin-bottom: 10px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">PSCAD Collection</h2>
-        <p style="color: var(--muted); text-align: left; line-height: 1.65; max-width: 100%;">
-          Download the cases freely and use them to explore PSCAD modelling concepts, simulation techniques, controls, automation, and EMT study workflows. These examples are in no particular order, rhyme or rhythm. All internal examples are subject to the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>. Just how I made them, what I was into at the time. For ideas or requests contact me on LinkedIn.
-        </p>
-      </div>
-      
-      <div class="curator-card" style="flex: 0 1 320px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(20, 36, 52, 0.04);">
-        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
-          <img src="/author/Pic.jpeg" alt="Mathias Pielahn" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
-          <div>
-            <div style="font-weight: 780; font-size: 0.95rem; color: var(--text);">Mathias Pielahn, P. Eng.</div>
-            <div style="font-size: 0.82rem; color: var(--muted); line-height: 1.3;">EMT-Tools Founder & Curator</div>
-          </div>
-        </div>
-        <a class="button button-linkedin follow-link" data-location="internal-section" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank" style="min-height: 38px; font-size: 0.85rem; padding: 0 12px; width: 100%;">View / Follow on LinkedIn</a>
-      </div>
+    <div class="section-heading">
+      <h2 style="margin-bottom: 10px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">Community Submissions</h2>
+      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
+        Downloadable PSCAD cases built by the power systems community and EMT-Tools. All cases have been reviewed by EMT-Tools to comply with our <a href="https://emt-tools.com/contribute/" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">submission guidelines</a> and are distributed under the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>.
+      </p>
     </div>
     
     <div class="scrollable-grid-container">
-      <div class="example-grid" id="exampleCollection">
+      <div class="example-grid" id="submissions-grid">
+        
+        <!-- 1. INTERNAL EXAMPLES (Mathias's files from _examples/) -->
         {% for example in site.examples %}
-        <article class="searchable-example example-card" data-source="internal" data-org="" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }}" id="{{ example.slug }}">
+        <article class="searchable-example example-card" id="{{ example.slug }}" data-source="submission" data-org="{{ example.organization | default: 'EMT-Tools' }}" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }} {{ example.author | downcase }} {{ example.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
-            <div class="example-number">Example {{ forloop.index }}</div>
             
-            <div style="background-color: #e2e8f0; padding: 4px 10px; font-size: 0.85em; color: #1e293b; border-radius: 4px; display: inline-block; margin-bottom: 12px; margin-top: 8px; font-weight: bold; max-width: calc(100% - 70px); line-height: 1.4;">
-                Author: <a href="{{ example.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px;">{{ example.author | default: 'Mathias Pielahn' }}</a> <span style="margin: 0 6px; color: #94a3b8;">
+            <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
+              ✦ Community Submission
+            </div>
+            
+            <div style="background-color: #e2e8f0; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
+              
+              <div style="display: flex; margin-bottom: 8px;">
+                <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Author(s):</div>
+                <div style="display: flex; flex-direction: column; gap: 3px;">
+                  {% assign default_author = example.author | default: 'Mathias Pielahn' %}
+                  {% assign default_linkedin = example.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' %}
+                  {% assign authors = default_author | split: "," %}
+                  {% assign linkedins = default_linkedin | split: "," %}
+                  
+                  {% for author in authors %}
+                    {% assign author_clean = author | strip %}
+                    {% assign link_clean = linkedins[forloop.index0] | strip %}
+                    
+                    {% if link_clean and link_clean != "" and link_clean != "none" %}
+                      <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px; font-weight: 700;">{{ author_clean }}</a>
+                    {% else %}
+                      <span style="font-weight: 700;">{{ author_clean }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div style="display: flex;">
+                <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Org:</div>
+                <div style="font-weight: 700;">{{ example.organization | default: 'EMT-Tools' }}</div>
+              </div>
+              
             </div>
             
             <h3 style="margin-top: 0;">{{ example.title }}</h3>
@@ -120,22 +136,9 @@ layout: default
           </div>
         </article>
         {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="examples submissions-section" id="submissions-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 20px;">
-  <div class="container">
-    <div class="section-heading">
-      <h2>Community Submissions</h2>
-      <p>The following PSCAD cases have been contributed by member of the Power Systems community. All cases have been reviewed by EMT-Tools to comply with the <a href="https://emt-tools.com/contribute/" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">submission guideline </a>. All community submission examples are subject to the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>.</p>
-    </div>
-    
-    <div class="scrollable-grid-container">
-      <div class="example-grid" id="submissions-grid">
+        <!-- 2. COMMUNITY SUBMISSIONS (from _data/submissions.yml) -->
         {% for resource in site.data.submissions %}
-        
           <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
@@ -144,7 +147,7 @@ layout: default
                 ✦ Community Submission
               </div>
               
-              <div style="background-color: #e2e8f0; padding: 12px 14px; margin-right: 75px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
+              <div style="background-color: #e2e8f0; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
                 
                 {% if resource.author %}
                 <div style="display: flex; margin-bottom: 8px;">
@@ -188,13 +191,13 @@ layout: default
               </div>
               <div class="card-actions" style="margin-top: auto; padding-top: 20px;">
                 <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-primary" style="width: 100%; text-align: center;">
-                  Download Example ↗
+                  View Submission ↗
                 </a>
               </div>
             </div>
           </article>
-          
         {% endfor %}
+
       </div>
     </div>
   </div>
@@ -203,8 +206,8 @@ layout: default
 <section class="examples external-resources-section" id="external-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 40px;">
   <div class="container">
     <div class="section-heading">
-      <h2> External Resources</h2>
-      <p>The following resources are hosted externally and are not subject to the EMT-Tools MIT License. All rights and credits belong to their original authors.</p>
+      <h2>External Resources</h2>
+      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">Links to third-party PSCAD models, tools, and papers. These resources are hosted externally, are not reviewed by EMT-Tools, and maintain their own independent licenses and credits.</p>
     </div>
 
     <style>
@@ -223,24 +226,15 @@ layout: default
           <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
-              <div style="background-color: #cbd5e1; padding: 12px 14px; margin-right: 75px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);">
+              <div style="background-color: #cbd5e1; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);">
                 
                 {% if resource.author %}
                 <div style="display: flex; margin-bottom: 8px;">
                   <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #334155;">Author(s):</div>
                   <div style="display: flex; flex-direction: column; gap: 3px;">
                     {% assign authors = resource.author | split: "," %}
-                    {% assign linkedins = resource.linkedin | split: "," %}
-                    
                     {% for author in authors %}
-                      {% assign author_clean = author | strip %}
-                      {% assign link_clean = linkedins[forloop.index0] | strip %}
-                      
-                      {% if link_clean and link_clean != "" and link_clean != "none" %}
-                        <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0056b3; text-decoration: underline; text-underline-offset: 2px; font-weight: 700;">{{ author_clean }}</a>
-                      {% else %}
-                        <span style="font-weight: 700;">{{ author_clean }}</span>
-                      {% endif %}
+                      <span style="font-weight: 700;">{{ author | strip }}</span>
                     {% endfor %}
                   </div>
                 </div>
@@ -280,14 +274,27 @@ layout: default
 
 <section style="padding-bottom: 82px;">
   <div class="container">
-    <div class="growth-callout" style="margin-top: 0;">
-      <div>
+    <div class="growth-callout" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between;">
+      
+      <div style="flex: 1 1 400px;">
         <h3>Looking for more?</h3>
         <p>I will try to create and upload new cases (somewhat) regularly. Follow on LinkedIn for new example releases, PSCAD tips, model development techniques, debugging lessons, and practical simulation insights.</p>
+        <a class="button button-linkedin follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank" style="display: inline-block; margin-top: 15px;">
+          Follow on LinkedIn
+        </a>
       </div>
-      <a class="button button-linkedin follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank">
-        Follow on LinkedIn
-      </a>
+
+      <!-- FOOTER CURATOR CARD -->
+      <div class="curator-card" style="flex: 0 1 320px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(20, 36, 52, 0.04); text-align: left;">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0;">
+          <img src="/author/Pic.jpeg" alt="Mathias Pielahn" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
+          <div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--text);">Mathias Pielahn, P. Eng.</div>
+            <div style="font-size: 0.85rem; color: var(--muted); line-height: 1.4;">EMT-Tools Founder & Curator</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
