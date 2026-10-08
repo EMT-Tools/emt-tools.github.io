@@ -97,7 +97,7 @@ layout: default
         
         <!-- 1. INTERNAL EXAMPLES (Mathias's files from _examples/) -->
         {% for example in site.examples %}
-        <article class="searchable-example example-card" id="{{ example.slug }}" data-source="submission" data-org="{{ example.organization | default: 'EMT-Tools' }}" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }} {{ example.author | downcase }} {{ example.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
+        <article class="searchable-example example-card" id="{{ example.slug }}" data-source="submission" data-org="{{ example.organization | default: 'EMT-Tools' }}" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }} {{ example.author | downcase }} {{ example.organization | downcase }}" style="background-color: #e6f0fa; border: 1px solid #bfdbf7; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.08);">
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
             
@@ -162,7 +162,7 @@ layout: default
 
         <!-- 2. COMMUNITY SUBMISSIONS (from _data/submissions.yml) -->
         {% for resource in site.data.submissions %}
-          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #e6f0fa; border: 1px solid #bfdbf7; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.08);">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
               
