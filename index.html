@@ -12,7 +12,7 @@ layout: default
       <div>✓ Totally Free</div>
       <div>✓ Open-Source</div>
       <div>✓ Anyone can Download</div>
-      <div>✓ <a href="/contribute/" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Anyone can Contribute</a></div>
+      <div>✓ <a href="{{ '/contribute/' | relative_url }}" style="color: inherit; text-decoration: underline; text-underline-offset: 4px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Anyone can Contribute</a></div>
     </div>
   </div>
 </section>
@@ -63,18 +63,37 @@ layout: default
 <section class="examples resources-section" id="resources-section" style="padding-bottom: 40px;">
   <div class="container">
     
-    <!-- MAIN HEADING & COMMUNITY SUBMISSIONS -->
-    <div class="section-heading">
+    <!-- UNIFIED HEADINGS -->
+    <div class="section-heading" style="margin-bottom: 40px;">
       <h2 style="margin-bottom: 30px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">Search PSCAD Resources</h2>
       
-      <h3 style="margin-bottom: 10px; font-size: 1.6rem; color: var(--text);">Community Submissions</h3>
-      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
-        Downloadable PSCAD cases built by the power systems community and EMT-Tools. All cases have been reviewed by EMT-Tools to comply with our <a href="https://emt-tools.com/contribute/" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">submission guidelines</a> and are distributed under the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>.
-      </p>
+      <div style="margin-bottom: 25px;">
+        <h3 style="margin-bottom: 8px; font-size: 1.4rem; color: var(--text);">Community Submissions</h3>
+        <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
+          Downloadable PSCAD cases built by the power systems community and EMT-Tools. All cases have been reviewed by EMT-Tools to comply with our <a href="{{ '/contribute/' | relative_url }}" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">submission guidelines</a> and are distributed under the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>.
+        </p>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 8px; font-size: 1.4rem; color: var(--text);">External Resources</h3>
+        <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
+          External links to third-party downloadable PSCAD examples and tools. These resources are hosted externally, are not reviewed by EMT-Tools, and maintain their own independent licenses and credits.
+        </p>
+      </div>
     </div>
+
+    <style>
+      article.example-card:target {
+        border-color: #0d5f8e !important;
+        box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15) !important;
+        transform: translateY(-2px) !important;
+        transition: all 0.3s ease !important;
+      }
+    </style>
     
+    <!-- SINGLE UNIFIED GRID -->
     <div class="scrollable-grid-container">
-      <div class="example-grid" id="submissions-grid">
+      <div class="example-grid" id="all-resources-grid">
         
         <!-- 1. INTERNAL EXAMPLES (Mathias's files from _examples/) -->
         {% for example in site.examples %}
@@ -202,31 +221,8 @@ layout: default
           </article>
         {% endfor %}
 
-      </div>
-    </div>
-
-    <!-- EXTERNAL RESOURCES SUBHEADING -->
-    <div class="section-heading" style="margin-top: 50px;">
-      <h3 style="margin-bottom: 10px; font-size: 1.6rem; color: var(--text);">External Resources</h3>
-      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
-        External links to third-party downloadable PSCAD examples and tools. These resources are hosted externally, are not reviewed by EMT-Tools, and maintain their own independent licenses and credits.
-      </p>
-    </div>
-
-    <style>
-      article.example-card:target {
-        border-color: #0d5f8e !important;
-        box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15) !important;
-        transform: translateY(-2px) !important;
-        transition: all 0.3s ease !important;
-      }
-    </style>
-    
-    <div class="scrollable-grid-container">
-      <div class="example-grid" id="external-examples-grid">
+        <!-- 3. EXTERNAL RESOURCES (from _data/external.yml) -->
         {% for resource in site.data.external %}
-          
-          <!-- EXTERNAL CARDS (SLATE GREY THEME) -->
           <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: 4px solid #64748b; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
@@ -274,8 +270,8 @@ layout: default
               </div>
             </div>
           </article>
-          
         {% endfor %}
+
       </div>
     </div>
   </div>
