@@ -12,7 +12,7 @@ layout: default
       <div>✓ Totally Free</div>
       <div>✓ Open-Source</div>
       <div>✓ Anyone can Download</div>
-      <div>✓ Anyone can Contribute</div>
+      <div>✓ <a href="/contribute/" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Anyone can Contribute</a></div>
     </div>
   </div>
 </section>
@@ -60,10 +60,14 @@ layout: default
   <div class="no-results" id="noResults" style="margin-top: 10px;">No PSCAD examples match your search.</div>
 </div>
 
-<section class="examples submissions-section" id="submissions-section" style="padding-bottom: 20px;">
+<section class="examples resources-section" id="resources-section" style="padding-bottom: 40px;">
   <div class="container">
+    
+    <!-- MAIN HEADING & COMMUNITY SUBMISSIONS -->
     <div class="section-heading">
-      <h2 style="margin-bottom: 10px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">Community Submissions</h2>
+      <h2 style="margin-bottom: 30px; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.03em;">Search PSCAD Resources</h2>
+      
+      <h3 style="margin-bottom: 10px; font-size: 1.6rem; color: var(--text);">Community Submissions</h3>
       <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
         Downloadable PSCAD cases built by the power systems community and EMT-Tools. All cases have been reviewed by EMT-Tools to comply with our <a href="https://emt-tools.com/contribute/" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">submission guidelines</a> and are distributed under the <a href="#disclaimer" style="color: var(--accent); font-weight: bold; text-decoration: underline; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">MIT License</a>.
       </p>
@@ -72,6 +76,7 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="submissions-grid">
         
+        <!-- 1. INTERNAL EXAMPLES (Mathias's files from _examples/) -->
         {% for example in site.examples %}
         <article class="searchable-example example-card" id="{{ example.slug }}" data-source="submission" data-org="{{ example.organization | default: 'EMT-Tools' }}" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }} {{ example.author | downcase }} {{ example.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
           <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
@@ -136,6 +141,7 @@ layout: default
         </article>
         {% endfor %}
 
+        <!-- 2. COMMUNITY SUBMISSIONS (from _data/submissions.yml) -->
         {% for resource in site.data.submissions %}
           <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #f4f9ff; border: 1px solid #cce3f8; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.05);">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
@@ -198,17 +204,16 @@ layout: default
 
       </div>
     </div>
-  </div>
-</section>
 
-<section class="examples external-resources-section" id="external-section" style="border-top: 2px solid #eaeaea; padding-top: 40px; padding-bottom: 40px;">
-  <div class="container">
-    <div class="section-heading">
-      <h2>External Resources</h2>
-      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">Links to third-party PSCAD models, tools, and papers. These resources are hosted externally, are not reviewed by EMT-Tools, and maintain their own independent licenses and credits.</p>
+    <!-- EXTERNAL RESOURCES SUBHEADING -->
+    <div class="section-heading" style="margin-top: 50px;">
+      <h3 style="margin-bottom: 10px; font-size: 1.6rem; color: var(--text);">External Resources</h3>
+      <p style="color: var(--muted); line-height: 1.65; max-width: 100%;">
+        External links to third-party downloadable PSCAD examples and tools. These resources are hosted externally, are not reviewed by EMT-Tools, and maintain their own independent licenses and credits.
+      </p>
     </div>
 
-<style>
+    <style>
       article.example-card:target {
         border-color: #0d5f8e !important;
         box-shadow: 0 0 0 4px rgba(13, 95, 142, 0.15) !important;
@@ -221,14 +226,20 @@ layout: default
       <div class="example-grid" id="external-examples-grid">
         {% for resource in site.data.external %}
           
-          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #e2e8f0; border: 1px solid #cbd5e1; box-shadow: none;" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
+          <!-- EXTERNAL CARDS (SLATE GREY THEME) -->
+          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="external" data-org="{{ resource.organization | escape }}" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-top: 4px solid #64748b; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}">
             <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
             <div class="example-content">
-              <div style="background-color: #cbd5e1; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);">
+              
+              <div style="color: #64748b; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
+                ✦ External Resource
+              </div>
+
+              <div style="background-color: #e2e8f0; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
                 
                 {% if resource.author %}
                 <div style="display: flex; margin-bottom: 8px;">
-                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #334155;">Author(s):</div>
+                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Author(s):</div>
                   <div style="display: flex; flex-direction: column; gap: 3px;">
                     {% assign authors = resource.author | split: "," %}
                     {% for author in authors %}
@@ -240,7 +251,7 @@ layout: default
 
                 {% if resource.organization %}
                 <div style="display: flex;">
-                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #334155;">Org:</div>
+                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Org:</div>
                   <div style="font-weight: 700;">{{ resource.organization }}</div>
                 </div>
                 {% endif %}
@@ -257,7 +268,7 @@ layout: default
                 <p>{{ resource.description }}</p>
               </div>
               <div class="card-actions" style="margin-top: auto; padding-top: 20px;">
-                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #0056b3; color: #0056b3; background: transparent;">
+                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-secondary" style="width: 100%; text-align: center; border: 1px solid #64748b; color: #475569; background: transparent;">
                   Visit External Site ↗
                 </a>
               </div>
@@ -270,27 +281,29 @@ layout: default
   </div>
 </section>
 
+<!-- UPDATED FOOTER -->
 <section style="padding-bottom: 82px;">
   <div class="container">
     <div class="growth-callout" style="margin-top: 0; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between;">
       
       <div style="flex: 1 1 400px;">
         <h3>Looking for more?</h3>
-        <p>I will try to create and upload new cases (somewhat) regularly. Follow on LinkedIn for new example releases, PSCAD tips, model development techniques, debugging lessons, and practical simulation insights.</p>
-        <a class="button button-primary follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank" style="display: inline-flex; justify-content: center; align-items: center; margin-top: 15px; padding: 12px 24px;">
-  Follow on LinkedIn
-</a>
-
+        <p style="margin-bottom: 15px;">Mathias founded EMT-Tools with the vision of building the largest online collection of freely downloadable PSCAD examples, supported by contributions from the global power systems community.</p>
+        <p style="margin-bottom: 15px;">With over 14 years of industry experience using PSCAD on a daily basis, including 11 years working directly with its development team, he has gained an in-depth understanding of the software, its capabilities, and its complexities. Through EMT-Tools, he aims to share this knowledge, promote collaboration, and make valuable PSCAD resources freely accessible to the wider engineering community.</p>
+        <p>Follow Mathias on LinkedIn for updates on new PSCAD example releases, practical tips, model development techniques, debugging lessons, and insights gained from real-world simulation experience.</p>
       </div>
 
-      <div class="curator-card" style="flex: 0 1 320px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: 0 8px 24px rgba(20, 36, 52, 0.04); text-align: left;">
-        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0;">
-          <img src="/author/Pic.jpeg" alt="Mathias Pielahn" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
+      <div class="curator-card" style="flex: 0 1 320px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: 0 8px 24px rgba(20, 36, 52, 0.04); text-align: left; display: flex; flex-direction: column; gap: 20px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <img src="/author/Pic.jpeg" alt="Mathias Pielahn" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
           <div>
             <div style="font-weight: 800; font-size: 1.05rem; color: var(--text);">Mathias Pielahn, P. Eng.</div>
             <div style="font-size: 0.85rem; color: var(--muted); line-height: 1.4;">EMT-Tools Founder & Curator</div>
           </div>
         </div>
+        <a class="button button-primary follow-link" data-location="bottom-callout" href="https://www.linkedin.com/in/mathiaspielahn/" rel="noopener noreferrer" target="_blank" style="display: flex; justify-content: center; align-items: center; padding: 12px 24px; width: 100%; box-sizing: border-box; font-weight: bold;">
+          Follow on LinkedIn
+        </a>
       </div>
 
     </div>
