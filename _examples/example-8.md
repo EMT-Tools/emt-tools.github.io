@@ -1,6 +1,6 @@
 ---
 title: Multimeter Filter Study
-tags: [Filter. Study]
+tags: [Filter, Study]
 pscad_version: v5.1+
 example_version: v1.0
 special_notes: N/A
