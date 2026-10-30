@@ -622,6 +622,32 @@ const searchInput = document.getElementById("exampleSearch");
     const internalSection = document.getElementById("internal-section");
     const externalSection = document.getElementById("external-section");
     const submissionsSection = document.getElementById("submissions-section");
+    function sortCommunitySubmissionsByDate() {
+      const grid = document.getElementById("all-resources-grid");
+      if (!grid) return;
+
+      // Select ONLY the internal and community submission cards (ignoring external resources)
+      const submissionCards = Array.from(grid.querySelectorAll('article[data-source="submission"]'));
+      
+      // Sort them by the data-date attribute (Newest to Oldest)
+      submissionCards.sort((a, b) => {
+        const dateA = new Date(a.dataset.date || "1900-01-01");
+        const dateB = new Date(b.dataset.date || "1900-01-01");
+        return dateB - dateA; // Descending order
+      });
+
+      // Find the first external resource card so we know where the boundary is
+      const firstExternal = grid.querySelector('article[data-source="external"]');
+
+      // Re-insert the sorted submission cards at the top of the grid
+      submissionCards.forEach(card => {
+        if (firstExternal) {
+          grid.insertBefore(card, firstExternal);
+        } else {
+          grid.appendChild(card);
+        }
+      });
+    }
     function getExampleTags(example) {
       return Array.from(example.querySelectorAll(".tag"))
         .map((tag) => tag.textContent.trim())
@@ -712,7 +738,8 @@ function populateFilters() {
         resultCountEl.textContent = `${totalVisible} / ${examples.length}`;
       }
     }
-
+  
+    sortCommunitySubmissionsByDate();
     populateFilters();
     if(searchInput) searchInput.addEventListener("input", filterExamples);
     if(tagFilter) tagFilter.addEventListener("change", filterExamples);
