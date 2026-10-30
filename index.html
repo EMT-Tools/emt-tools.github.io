@@ -96,7 +96,16 @@ layout: default
       <div class="example-grid" id="all-resources-grid">
         
 <!-- MERGE AND SORT internal AND COMMUNITY SUBMISSIONS BY DATE -->
-        {% assign combined_submissions = site.examples | concat: site.data.submissions %}
+{% assign combined_submissions = "" | split: "" %}
+        
+        {% for item in site.examples %}
+          {% assign combined_submissions = combined_submissions | push: item %}
+        {% endfor %}
+        
+        {% for item in site.data.submissions %}
+          {% assign combined_submissions = combined_submissions | push: item %}
+        {% endfor %}
+
         {% assign sorted_submissions = combined_submissions | sort: 'date' | reverse %}
 
         {% for item in sorted_submissions %}
