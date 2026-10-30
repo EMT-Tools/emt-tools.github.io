@@ -95,10 +95,13 @@ layout: default
     <div class="scrollable-grid-container">
       <div class="example-grid" id="all-resources-grid">
         
-        <!-- 1. INTERNAL EXAMPLES (Mathias's files from _examples/) -->
-        {% for example in site.examples %}
-        <article class="searchable-example example-card" id="{{ example.slug }}" data-source="submission" data-org="{{ example.organization | default: 'EMT-Tools' }}" data-search="{{ example.tags | join: ' ' | downcase }} {{ example.title | downcase }} {{ example.author | downcase }} {{ example.organization | downcase }}" style="background-color: #e6f0fa; border: 1px solid #bfdbf7; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.08);">
-          <button aria-label="Share this PSCAD example" class="share-button-top share-button" type="button">Share</button>
+<!-- MERGE AND SORT internal AND COMMUNITY SUBMISSIONS BY DATE -->
+        {% assign combined_submissions = site.examples | concat: site.data.submissions %}
+        {% assign sorted_submissions = combined_submissions | sort: 'date' | reverse %}
+
+        {% for item in sorted_submissions %}
+        <article class="searchable-example example-card" id="{% if item.slug %}{{ item.slug }}{% else %}{{ item.title | slugify }}{% endif %}" data-source="submission" data-org="{{ item.organization | default: 'EMT-Tools' | escape }}" data-search="{{ item.tags | join: ' ' | downcase }} {{ item.title | downcase }} {{ item.author | downcase }} {{ item.organization | downcase }}" style="background-color: #e6f0fa; border: 1px solid #bfdbf7; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.08);">
+          <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
           <div class="example-content">
             
             <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
@@ -110,8 +113,8 @@ layout: default
               <div style="display: flex; margin-bottom: 8px;">
                 <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Author(s):</div>
                 <div style="display: flex; flex-direction: column; gap: 3px;">
-                  {% assign default_author = example.author | default: 'Mathias Pielahn' %}
-                  {% assign default_linkedin = example.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' %}
+                  {% assign default_author = item.author | default: 'Mathias Pielahn' %}
+                  {% assign default_linkedin = item.linkedin | default: 'https://www.linkedin.com/in/mathiaspielahn/' %}
                   {% assign authors = default_author | split: "," %}
                   {% assign linkedins = default_linkedin | split: "," %}
                   
@@ -130,95 +133,48 @@ layout: default
 
               <div style="display: flex;">
                 <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Org:</div>
-                <div style="font-weight: 700;">{{ example.organization | default: 'EMT-Tools' }}</div>
+                <div style="font-weight: 700;">{{ item.organization | default: 'EMT-Tools' }}</div>
               </div>
               
             </div>
             
-            <h3 style="margin-top: 0;">{{ example.title }}</h3>
+            <h3 style="margin-top: 0;">{{ item.title }}</h3>
             <div class="tags-label">Tags</div>
             <div aria-label="Tags" class="tags">
-              {% for tag in example.tags %}
+              {% for tag in item.tags %}
               <span class="tag">{{ tag }}</span>
               {% endfor %}
             </div>
             <div class="example-description">
-              {{ example.content }}
+              {% if item.content %}
+                {{ item.content }}
+              {% else %}
+                <p>{{ item.description }}</p>
+              {% endif %}
             </div>
+            
+            {% if item.content %}
             <br/>
             <div class="metadata">
-              <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ example.pscad_version | default: "v5.1+" }}</span></div>
-              <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ example.example_version | default: "v1.0" }}</span></div>
-              <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ example.special_notes | default: "N/A" }}</span></div>
+              <div class="meta-item"><span class="meta-label">PSCAD Version</span><span class="meta-value">{{ item.pscad_version | default: "v5.1+" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Example Version</span><span class="meta-value">{{ item.example_version | default: "v1.0" }}</span></div>
+              <div class="meta-item"><span class="meta-label">Special Notes</span><span class="meta-value">{{ item.special_notes | default: "N/A" }}</span></div>
             </div>
+            {% endif %}
+            
             <div class="card-actions" style="margin-top: auto;">
-              <button class="button button-primary download-button" data-download-url="{{ example.download_url }}" data-example="{{ example.title }}" type="button" style="width: 100%; text-align: center;">
-                Download Example
-              </button>
+              {% if item.content %}
+                <button class="button button-primary download-button" data-download-url="{{ item.download_url }}" data-example="{{ item.title }}" type="button" style="width: 100%; text-align: center;">
+                  Download Example
+                </button>
+              {% else %}
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="button button-primary" style="width: 100%; text-align: center; padding: 12px 24px; box-sizing: border-box; display: flex; justify-content: center; align-items: center;">
+                  Download Example
+                </a>
+              {% endif %}
             </div>
           </div>
         </article>
-        {% endfor %}
-
-        <!-- 2. COMMUNITY SUBMISSIONS (from _data/submissions.yml) -->
-        {% for resource in site.data.submissions %}
-          <article class="searchable-example example-card" id="{{ resource.title | slugify }}" data-source="submission" data-org="{{ resource.organization | escape }}" data-search="{{ resource.tags | join: ' ' | downcase }} {{ resource.title | downcase }} {{ resource.author | downcase }} {{ resource.organization | downcase }}" style="background-color: #e6f0fa; border: 1px solid #bfdbf7; border-top: 4px solid var(--accent); box-shadow: 0 4px 15px rgba(13, 95, 142, 0.08);">
-            <button aria-label="Share this PSCAD resource" class="share-button-top share-button" type="button">Share</button>
-            <div class="example-content">
-              
-              <div style="color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">
-                ✦ Community Submission
-              </div>
-              
-              <div style="background-color: #e2e8f0; padding: 12px 85px 12px 14px; font-size: 0.85em; color: #1e293b; border-radius: 6px; margin-bottom: 16px; line-height: 1.5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);">
-                
-                {% if resource.author %}
-                <div style="display: flex; margin-bottom: 8px;">
-                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Author(s):</div>
-                  <div style="display: flex; flex-direction: column; gap: 3px;">
-                    {% assign authors = resource.author | split: "," %}
-                    {% assign linkedins = resource.linkedin | split: "," %}
-                    
-                    {% for author in authors %}
-                      {% assign author_clean = author | strip %}
-                      {% assign link_clean = linkedins[forloop.index0] | strip %}
-                      
-                      {% if link_clean and link_clean != "" and link_clean != "none" %}
-                        <a href="{{ link_clean }}" target="_blank" rel="noopener noreferrer" style="color: #0d5f8e; text-decoration: underline; text-underline-offset: 2px; font-weight: 700;">{{ author_clean }}</a>
-                      {% else %}
-                        <span style="font-weight: 700;">{{ author_clean }}</span>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                </div>
-                {% endif %}
-
-                {% if resource.organization %}
-                <div style="display: flex;">
-                  <div style="font-weight: 800; width: 75px; flex-shrink: 0; color: #475569;">Org:</div>
-                  <div style="font-weight: 700;">{{ resource.organization }}</div>
-                </div>
-                {% endif %}
-                
-              </div>
-              
-              <h3 style="margin-top: 0;">{{ resource.title }}</h3>
-              <div class="tags-label">Tags</div>
-              <div aria-label="Tags" class="tags">
-                {% for tag in resource.tags %}
-                  <span class="tag">{{ tag }}</span>
-                {% endfor %}
-              </div>
-              <div class="example-description">
-                <p>{{ resource.description }}</p>
-              </div>
-              <div class="card-actions" style="margin-top: auto; padding-top: 20px;">
-                <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer" class="button button-primary" style="width: 100%; text-align: center;">
-                  Download Example
-                </a>
-              </div>
-            </div>
-          </article>
         {% endfor %}
 
         <!-- 3. EXTERNAL RESOURCES (from _data/external.yml) -->
