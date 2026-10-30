@@ -47,6 +47,7 @@ models support studies of internal control interactions, data center-grid
 coupling, and workload power propagation. Two cases demonstrate a complete data
 center model and comparisons between modeling fidelity levels."
   tags: ["UPS", "Data Centers", "Large Loads", "Controls"]
+  date: 2026-09-30
 
 - title: "Control Numerical Artifact"
   author: "Ramin Parvari"
@@ -55,3 +56,4 @@ center model and comparisons between modeling fidelity levels."
   url: "https://github.com/EMT-Tools/emt-tools.github.io/raw/refs/heads/main/submissions/Control_Numerical_Artifact.zip" 
   description: "Sequential execution of control blocks in EMT simulations can introduce artificial time delays in algebraic feedback loops, resulting in numerical oscillations or instability. This example demonstrates how different feedback gains produce artificial dynamics that do not reflect the actual physical system."
   tags: ["Controls", "Study"]
+  date: 2026-10-30
